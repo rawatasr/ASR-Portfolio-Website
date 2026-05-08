@@ -1,0 +1,72 @@
+/* ── PORTFOLIO SECTION ── */
+.port-sec {
+  background: var(--bg);
+  padding: var(--section-spacing) var(--section-px) var(--section-spacing);
+  position: relative;
+}
+
+.port-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 24px;
+}
+.port-head .stitle {
+  margin-top: 24px;
+  line-height: 1.2;
+}
+
+.port-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.port-grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+.port-grid::-webkit-scrollbar {
+  display: none;
+}
+.port-grid .port-card {
+  scroll-snap-align: start;
+}
+.port-grid .port-card:last-child {
+  margin-right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .port-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .port-nav {
+    align-self: flex-end;
+  }
+}
+
+@media (min-width: 1900px) {
+  .port-card {
+    width: 640px;
+  }
+  .port-img {
+    height: 480px;
+    border-radius: 28px;
+  }
+  .port-name {
+    font-size: 28px;
+  }
+  .port-sub {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,100 @@
+/* ── MARQUEE SECTION ── */
+.marquee-section {
+  position: relative;
+  background: #0a0a0a;
+  overflow: hidden;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Precise gap between rows */
+}
+
+/* Left & right fade vignette */
+.marquee-section::before,
+.marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  z-index: 10;
+  pointer-events: none;
+}
+.marquee-section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-alt) 0%, transparent 100%);
+}
+.marquee-section::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-alt) 0%, transparent 100%);
+}
+
+.marquee-row {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  padding: 0; /* Remove internal padding to use section gap instead */
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* Row 1: right → left */
+.marquee-row.rtl .marquee-track {
+  animation: ticker-rtl 35s linear infinite;
+}
+/* Row 2: left → right */
+.marquee-row.ltr .marquee-track {
+  animation: ticker-ltr 35s linear infinite;
+}
+
+@keyframes ticker-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes ticker-ltr {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Marquee items */
+.mi {
+  display: inline-flex;
+  align-items: flex-start;
+  white-space: nowrap;
+  padding: 0 60px;
+}
+.ml {
+  font-family: 'Manrope', sans-serif;
+  font-size: 30px;
+  font-weight: 400; /* Lighter weight for hierarchy */
+  color: #ffffff;
+  text-transform: none;
+  letter-spacing: -0.5px;
+  margin-right: 20px; /* More space between label and text */
+  margin-top: 18px; /* Precise alignment with Oswald caps */
+  flex-shrink: 0;
+  line-height: 1;
+}
+.mt {
+  font-family: 'Oswald', sans-serif;
+  font-size: 130px;
+  font-weight: 400; /* Updated to Regular weight */
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+/* Color modifiers */
+.blue   { color: #2FA9DE; }
+.purple { color: #7B6CEB; }
+.pink   { color: #D62976; }
+.white  { color: #ffffff; }
+
+.dot {
+  display: none;
+}

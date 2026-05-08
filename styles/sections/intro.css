@@ -1,0 +1,60 @@
+/* ── INTRO / ABOUT SECTION ── */
+.intro-sec {
+  padding: var(--section-spacing) var(--section-px) 90px;
+  background: #0d0d0d url("../../assets/Intro BG.png") no-repeat center center / cover;
+}
+
+.intro-label {
+  margin-bottom: 24px;
+}
+
+.intro-title {
+  font-family: var(--ff-heading);
+  font-weight: 700;
+  font-size: clamp(28px, 3.5vw, 48px);
+  line-height: 1.25;
+  color: var(--text-primary);
+  max-width: 900px;
+}
+.intro-title .accent {
+  color: var(--blue);
+}
+
+.intro-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 48px;
+}
+
+.intro-bottom-right {
+  max-width: 520px;
+}
+
+.about-desc {
+  font-size: var(--fs-sm);
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+.about-desc p + p {
+  margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
+  .intro-bottom {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .intro-bottom > div:first-child {
+    display: none;
+  }
+}
+@media (min-width: 1900px) {
+  .intro-title {
+    font-size: clamp(48px, 4.5vw, 72px);
+    max-width: 1400px;
+  }
+  .intro-bottom-right {
+    max-width: 100%;
+  }
+}

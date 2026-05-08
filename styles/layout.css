@@ -1,0 +1,82 @@
+/* ── LAYOUT & CONTAINER SYSTEM ── */
+
+/* Responsive container - centers content with consistent max-width */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+/* Section base padding - REMOVED to prevent double padding */
+/* Individual sections manage their own padding */
+
+/* ── Responsive scaling ── */
+/* 1440px baseline */
+@media (min-width: 1440px) {
+  :root {
+    --section-px: 0;
+    
+    /* Typography scale up */
+    --fs-xxl: clamp(36px, 5vw, 64px);
+    --fs-xl: clamp(30px, 4vw, 48px);
+    --fs-lg: 24px;
+    --fs-md: 18px;
+    --fs-sm: 17px;
+    --fs-xs: 15px;
+
+    /* Spacing scale up */
+    --section-spacing: 80px;
+    --section-py: var(--section-spacing);
+    
+    /* Radius scale up */
+    --radius-md: 18px;
+  }
+}
+
+/* 1900px+ scale up */
+@media (min-width: 1900px) {
+  :root {
+    --section-px: 0;
+    --container-max: 1690px;
+    --container-wide: 1690px;
+
+    /* Typography scale up */
+    --fs-xxl: clamp(48px, 6vw, 88px);
+    --fs-xl: clamp(36px, 5vw, 64px);
+    --fs-lg: 28px;
+    --fs-md: 20px;
+    --fs-sm: 18px;
+    --fs-xs: 16px;
+    --fs-xxs: 14px;
+
+    /* Spacing scale up */
+    --section-spacing: 100px;
+    --section-py: var(--section-spacing);
+
+    /* Radius scale up */
+    --radius-md: 24px;
+    --radius-lg: 28px;
+  }
+}
+
+/* Smaller desktops */
+@media (max-width: 1280px) {
+  :root {
+    --section-px: 60px;
+    --section-spacing: 70px;
+    --section-py: var(--section-spacing);
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --section-px: 40px;
+    --section-spacing: 60px;
+    --section-py: var(--section-spacing);
+  }
+}

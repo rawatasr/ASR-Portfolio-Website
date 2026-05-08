@@ -1,0 +1,19 @@
+/* ── FOOTER ── */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px var(--section-px);
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-xxs);
+  color: var(--text-dim);
+}
+
+footer a {
+  color: var(--text-dim);
+  margin-left: 24px;
+  transition: color var(--ease-default);
+}
+footer a:hover {
+  color: var(--text-primary);
+}

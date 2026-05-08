@@ -1,0 +1,44 @@
+/* ── CHIPS & TAGS ── */
+
+/* Info chips (intro section) */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+.chip {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  padding: 10px 20px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Timeline tags */
+.tl-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.tl-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--blue);
+  background: rgba(47, 169, 222, 0.08);
+  border: 1px solid rgba(47, 169, 222, 0.18);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}

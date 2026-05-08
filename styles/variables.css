@@ -1,0 +1,50 @@
+/* ── DESIGN TOKENS ── */
+:root {
+  /* Colors */
+  --bg: #111;
+  --bg-alt: #161616;
+  --bg-card: #1d2022;
+
+  --blue: #2fa9de;
+  --purple: #7b6ceb;
+  --pink: #d62976;
+
+  --text-primary: #ffffff;
+  --text-secondary: #d8d8d8;
+  --text-muted: #bcbcbc;
+  --text-dim: #888;
+  --text-label: #444;
+
+  --chip-bg: #3b3b3c;
+  --chip-text: #bcbcbc;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.06);
+
+  /* Typography */
+  --ff-heading: 'Oswald', sans-serif;
+  --ff-body: 'Manrope', sans-serif;
+
+  --fs-xxl: clamp(32px, 4vw, 56px);
+  --fs-xl: clamp(28px, 3vw, 42px);
+  --fs-lg: 22px;
+  --fs-md: 16px;
+  --fs-sm: 15px;
+  --fs-xs: 13px;
+  --fs-xxs: 12px;
+
+  /* Spacing */
+  --section-py: 100px;
+  --section-px: 100px;
+  --section-spacing: 100px;
+  --container-max: 1200px;
+  --container-wide: 1360px;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 100px;
+
+  /* Transitions */
+  --ease-default: 0.3s ease;
+}

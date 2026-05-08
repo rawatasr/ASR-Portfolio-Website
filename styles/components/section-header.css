@@ -1,0 +1,33 @@
+/* ── SECTION HEADERS ── */
+
+/* Label (// INTRO, // EXPERIENCE, etc.) */
+.lbl {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 36px;
+}
+
+/* Section title */
+.stitle {
+  font-family: var(--ff-heading);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+/* Responsive heading sizes */
+@media (min-width: 1440px) {
+  .stitle {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .stitle {
+    font-size: 76px;
+  }
+}

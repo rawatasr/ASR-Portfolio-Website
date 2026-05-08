@@ -1,0 +1,40 @@
+/* ── NAVIGATION ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: rgba(17, 17, 17, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--ff-heading);
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  letter-spacing: 1px;
+  color: var(--text-primary);
+}
+
+nav ul {
+  display: flex;
+  gap: 40px;
+}
+
+nav a {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: color var(--ease-default);
+}
+
+nav a:hover {
+  color: var(--blue);
+}
