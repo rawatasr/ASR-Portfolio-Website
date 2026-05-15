@@ -6,7 +6,7 @@
   height: 780px;
   min-height: 780px;
   overflow: hidden;
-  background-image: url('../../assets/bg.png');
+  background-image: url('../../assets/webp/bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -153,17 +153,20 @@
 
 /* Responsive Breakpoints */
 
+/* Desktop name sizing fallback. JS fine-tunes this edge-to-edge below 1920px. */
+@media (min-width: 768px) and (max-width: 1919px) {
+  .hero-bg-name {
+    font-size: var(--hero-name-fit-size, clamp(120px, 16.8vw, 322px));
+    letter-spacing: clamp(-0.06em, -0.045em, -0.03em);
+    padding: 0;
+  }
+}
+
 /* 1280px Viewport */
 @media (max-width: 1280px) {
   .hero {
     height: 720px;
     min-height: 720px;
-  }
-  
-  .hero-bg-name {
-    font-size: clamp(70px, 16vw, 320px);
-    letter-spacing: clamp(-0.05em, -0.03em, -0.02em);
-    padding: 0 clamp(8px, 1.5vw, 30px);
   }
   
   .hero-role {
@@ -264,7 +267,7 @@
     height: 500px;
     min-height: 500px;
     overflow: hidden;
-    background-image: url('../../assets/bg.png');
+    background-image: url('../../assets/webp/bg.webp');
     background-size: cover;
     background-position: center center;
     border-radius: 0;
@@ -420,4 +423,3 @@
     display: none;
   }
 }
-
