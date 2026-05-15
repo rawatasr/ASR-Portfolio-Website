@@ -686,7 +686,7 @@ body {
   height: 780px;
   min-height: 780px;
   overflow: hidden;
-  background-image: url('../../assets/webp/bg.webp');
+  background-image: url('../assets/webp/bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -947,7 +947,7 @@ body {
     height: 500px;
     min-height: 500px;
     overflow: hidden;
-    background-image: url('../../assets/webp/bg.webp');
+    background-image: url('../assets/webp/bg.webp');
     background-size: cover;
     background-position: center center;
     border-radius: 0;
@@ -1215,7 +1215,7 @@ body {
 
 @media (min-width: 769px) {
   .intro-sec.lazy-bg-loaded {
-    background: #0d0d0d url("../../assets/webp/Intro BG.jpg") no-repeat center center / cover;
+    background: #0d0d0d url("../assets/webp/Intro BG.jpg") no-repeat center center / cover;
   }
 }
 
@@ -2113,7 +2113,7 @@ body {
 }
 
 #contact.lazy-bg-loaded {
-  background-image: url('../../assets/webp/Footer BG.webp');
+  background-image: url('../assets/webp/Footer BG.webp');
 }
 
 .contact-container {
@@ -2297,7 +2297,7 @@ body {
 
 @media (max-width: 768px) {
   #contact.lazy-bg-loaded {
-    background-image: url('../../assets/webp/contact bg mobile.webp');
+    background-image: url('../assets/webp/contact bg mobile.webp');
   }
 }
 
