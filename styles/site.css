@@ -1215,7 +1215,7 @@ body {
 
 @media (min-width: 769px) {
   .intro-sec.lazy-bg-loaded {
-    background: #0d0d0d url("../../assets/webp/Intro BG.webp") no-repeat center center / cover;
+    background: #0d0d0d url("../../assets/webp/Intro BG.jpg") no-repeat center center / cover;
   }
 }
 
