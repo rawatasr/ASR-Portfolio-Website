@@ -947,7 +947,7 @@ body {
     height: 500px;
     min-height: 500px;
     overflow: hidden;
-    background-image: url('../assets/webp/bg.webp');
+    background-image: url('../assets/webp/hero Bg Mobile.webp');
     background-size: cover;
     background-position: center center;
     border-radius: 0;
@@ -1215,7 +1215,13 @@ body {
 
 @media (min-width: 769px) {
   .intro-sec.lazy-bg-loaded {
-    background: #0d0d0d url("../assets/webp/Intro BG.jpg") no-repeat center center / cover;
+    background: #0d0d0d url("../assets/webp/Intro BG.webp") no-repeat center center / cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-sec.lazy-bg-loaded {
+    background: #0d0d0d url("../assets/webp/Intro Bg Mobile.webp") no-repeat center center / cover;
   }
 }
 
