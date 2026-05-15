@@ -29,7 +29,7 @@ function initLazyBackgrounds() {
       loadBackground(entry.target);
       observer.unobserve(entry.target);
     });
-  }, { rootMargin: '600px 0px' });
+  }, { rootMargin: '150px 0px' });
 
   sections.forEach((section) => observer.observe(section));
 }

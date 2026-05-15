@@ -655,7 +655,7 @@
     text-transform: uppercase;
     color: var(--text-primary);
     margin-bottom: 4px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--ff-body);
   }
 
   .ci-val {
@@ -676,7 +676,7 @@
 
   .contact-footer > span {
     font-size: 16px;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--ff-body);
     color: var(--text-secondary);
   }
 
@@ -684,7 +684,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-    font-family: 'Rajdhani', sans-serif;
+    font-family: var(--ff-body);
     color: var(--text-secondary);
   }
 
