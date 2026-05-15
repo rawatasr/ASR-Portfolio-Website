@@ -11,6 +11,7 @@
 }
 
 @media (max-width: 768px) {
+  .intro-sec,
   .intro-sec.lazy-bg-loaded {
     background: #0d0d0d url("../../assets/webp/Intro Bg Mobile.webp") no-repeat center center / cover;
   }
