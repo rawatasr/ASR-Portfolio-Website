@@ -1,0 +1,228 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0a0a;font-family:system-ui,sans-serif;color:#fff;padding:2rem 1rem}
+
+.lbl{font-size:11px;letter-spacing:2px;color:#4a9eff;margin-bottom:8px}
+.stitle{font-size:32px;font-weight:700;margin-bottom:8px}
+.subtitle p{color:#777;font-size:13px;line-height:1.6}
+.header-section{margin-bottom:56px}
+
+.timeline-section{position:relative;width:100%}
+
+/* 
+  APPROACH: One big relative container.
+  The line is absolute at a fixed pixel Y.
+  Dots are absolute at that same Y.
+  Cards are absolute above/below that Y.
+  No flex, no grid confusion.
+*/
+
+.tl-wrap{
+  position:relative;
+  width:100%;
+  height:480px; /* total canvas height */
+}
+
+/* The horizontal line — fixed at Y=240 (middle) */
+.tl-line{
+  position:absolute;
+  top:240px;
+  left:0;right:0;
+  height:1px;
+  background:#1e4a6e;
+}
+.tl-line-bright{
+  position:absolute;
+  top:240px;
+  left:0;right:100%;
+  height:1px;
+  background:#4a9eff;
+  animation:growLine 1.5s ease forwards;
+}
+@keyframes growLine{to{right:0}}
+
+/* Each column: 25% wide, absolutely positioned */
+.tl-col{
+  position:absolute;
+  top:0;bottom:0;
+  width:25%;
+}
+.tl-col:nth-child(3){left:0}
+.tl-col:nth-child(4){left:25%}
+.tl-col:nth-child(5){left:50%}
+.tl-col:nth-child(6){left:75%}
+
+/* Dot: always at Y=240, horizontally centred in column */
+.tl-dot{
+  position:absolute;
+  top:240px;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:12px;height:12px;
+  border-radius:50%;
+  background:#4a9eff;
+  border:2px solid #0a0a0a;
+  outline:2px solid #4a9eff;
+  z-index:3;
+}
+.tl-dot.active{
+  width:14px;height:14px;
+  background:#fff;
+  outline:2px solid #4a9eff;
+}
+
+/* Vertical stem from dot to card */
+.tl-stem{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:1px;
+  background:#1e3a5a;
+  z-index:1;
+}
+/* stem going UP (from line Y=240 upward to card bottom) */
+.tl-stem.up{
+  bottom:240px; /* starts at line */
+  top:auto;
+  height:32px; /* how tall the stem is */
+  /* so top edge = 240 - 32 = 208px */
+}
+/* stem going DOWN */
+.tl-stem.down{
+  top:240px;
+  height:32px;
+}
+
+/* Date label */
+.tl-date{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:10px;
+  color:#666;
+  white-space:nowrap;
+  letter-spacing:.3px;
+  z-index:2;
+}
+.tl-date.above{
+  /* just above the dot */
+  top: calc(240px - 7px - 18px); /* dot centre - half dot - gap - text */
+}
+.tl-date.below{
+  top: calc(240px + 7px + 6px);
+}
+
+/* Card box */
+.tl-card{
+  position:absolute;
+  left:6px;right:6px;
+  background:#111418;
+  border:1px solid #1e2530;
+  border-radius:10px;
+  padding:14px;
+  z-index:2;
+}
+/* Card sitting ABOVE the line: bottom edge at stem top = 240-32=208px */
+.tl-card.above{
+  bottom: calc(100% - 208px); /* = 480 - 208 = 272px from bottom → top edge auto */
+  /* easier: just pin bottom */
+  top:auto;
+  bottom:272px;
+}
+/* Card sitting BELOW: top edge at stem bottom = 240+32=272px */
+.tl-card.below{
+  top:272px;
+}
+
+.card-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.card-sub{font-size:11px;color:#4a9eff;margin-bottom:10px}
+.card-list{list-style:none;padding:0;margin-bottom:10px}
+.card-list li{font-size:11px;color:#888;padding:2px 0 2px 12px;position:relative;line-height:1.4}
+.card-list li::before{content:'–';position:absolute;left:0;color:#444}
+.card-tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:9px;border:1px solid #252a38;border-radius:3px;padding:2px 7px;color:#666;letter-spacing:.4px}
+</style>
+
+<div class="header-section">
+  <div class="lbl">// EXPERIENCE</div>
+  <h2 class="stitle">Professional Journey</h2>
+  <div class="subtitle">
+    <p>A chronological narrative of my career evolution in UI/UX and Graphic Design,</p>
+    <p>marked by precision and creative leadership.</p>
+  </div>
+</div>
+
+<div class="timeline-section">
+  <div class="tl-wrap">
+
+    <!-- Base line -->
+    <div class="tl-line"></div>
+    <div class="tl-line-bright"></div>
+
+    <!-- COL 1: Webtech — card BELOW line -->
+    <div class="tl-col" style="left:0">
+      <div class="tl-date above">FEB 2021 – JUN 2021</div>
+      <div class="tl-dot"></div>
+      <div class="tl-stem down"></div>
+      <div class="tl-card below">
+        <p class="card-title">Webtech Learning</p>
+        <p class="card-sub">Web & Graphic Designing Training</p>
+        <ul class="card-list">
+          <li>Learned design fundamentals</li>
+          <li>Basics of HTML & CSS</li>
+        </ul>
+        <div class="card-tags"><span class="tag">UI DESIGN</span><span class="tag">UX THEORY</span></div>
+      </div>
+    </div>
+
+    <!-- COL 2: Blacklisted Agency — card ABOVE line -->
+    <div class="tl-col" style="left:25%">
+      <div class="tl-card above">
+        <p class="card-title">Blacklisted Agency</p>
+        <p class="card-sub">Graphic Designer</p>
+        <ul class="card-list">
+          <li>Designed vector illustrations</li>
+          <li>Created social media posts using Illustrator</li>
+        </ul>
+        <div class="card-tags"><span class="tag">VISUAL ARTS</span><span class="tag">MARKETING</span></div>
+      </div>
+      <div class="tl-stem up"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-date below">JUN 2021 – JAN 2022</div>
+    </div>
+
+    <!-- COL 3: Sntrix — card BELOW line -->
+    <div class="tl-col" style="left:50%">
+      <div class="tl-date above">FEB 2022 – MAR 2024</div>
+      <div class="tl-dot"></div>
+      <div class="tl-stem down"></div>
+      <div class="tl-card below">
+        <p class="card-title">Sntrix</p>
+        <p class="card-sub">UI/UX & Graphic Designer</p>
+        <ul class="card-list">
+          <li>Designed websites using Figma and Adobe tools</li>
+          <li>Created logos and social media graphics</li>
+        </ul>
+        <div class="card-tags"><span class="tag">WEBSITE</span><span class="tag">BRANDING</span></div>
+      </div>
+    </div>
+
+    <!-- COL 4: Sunfocus — card ABOVE line -->
+    <div class="tl-col" style="left:75%">
+      <div class="tl-card above">
+        <p class="card-title">Sunfocus Solution</p>
+        <p class="card-sub">UI/UX & Graphic Designer</p>
+        <ul class="card-list">
+          <li>Designing mobile and web applications</li>
+          <li>Creating marketing and social media creatives</li>
+        </ul>
+        <div class="card-tags"><span class="tag">PRODUCT DESIGN</span><span class="tag">STRATEGY</span></div>
+      </div>
+      <div class="tl-stem up"></div>
+      <div class="tl-dot active"></div>
+      <div class="tl-date below">APR 2024 – PRESENT</div>
+    </div>
+
+  </div>
+</div>

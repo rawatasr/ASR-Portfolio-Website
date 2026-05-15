@@ -1,0 +1,786 @@
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE STYLES
+   ONLY applies to mobile devices (max-width: 768px)
+   Desktop styles remain unchanged
+   Section gap: 48px between all sections on mobile
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── MOBILE ONLY STYLES ── */
+@media (max-width: 768px) {
+  /* Mobile wrapper with max-width constraint */
+  body > section,
+  body > .marquee-section {
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container {
+    max-width: 430px;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  /* Section spacing - 48px gap between sections (mobile only) */
+  .hero + .marquee-section {
+    margin-top: 0;
+  }
+
+  .marquee-section + .intro-sec {
+    margin-top: 0;
+  }
+
+  .intro-sec + .video-sec {
+    margin-top: 0;
+  }
+
+  .video-sec + .exp-sec {
+    margin-top: 0;
+  }
+
+  .exp-sec + .port-sec {
+    margin-top: 0;
+  }
+
+  .port-sec + #contact {
+    margin-top: 48px;
+  }
+
+  /* ═══════════════════════════ HERO SECTION ═══════════════════════════ */
+  /* Hero mobile styles are now in hero.css for better organization */
+
+  /* ═══════════════════════════ MARQUEE ═══════════════════════════ */
+  .marquee-section {
+    padding: 0;
+    gap: 0;
+    margin: 0;
+    background: #0a0a0a;
+  }
+
+  .marquee-row {
+    height: auto;
+    position: relative;
+    padding: 8px 0;
+  }
+
+  .marquee-row:first-child {
+    padding-bottom: 6px;
+  }
+
+  .marquee-row:last-child {
+    padding-top: 6px;
+  }
+
+  .mi {
+    gap: 8px;
+    padding: 0 40px;
+  }
+
+  .ml {
+    font-size: 16px;
+    font-family: 'Manrope', sans-serif;
+    color: #ffffff;
+    margin-top: 0;
+  }
+
+  .mt {
+    font-size: 56px;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Add gradient overlays for mobile */
+  .marquee-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 80px;
+    background: linear-gradient(to right, #0a0a0a, transparent);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .marquee-row::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 80px;
+    background: linear-gradient(to left, #0a0a0a, transparent);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* ═══════════════════════════ INTRO SECTION ═══════════════════════════ */
+  .intro-sec {
+    padding: 48px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .intro-sec .container {
+    padding: 0;
+  }
+
+  .intro-label {
+    margin-bottom: 48px;
+    font-size: 14px;
+    letter-spacing: 1.4px;
+  }
+
+  .intro-title {
+    font-size: clamp(28px, 7vw, 32px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .intro-bottom {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .intro-bottom > div:first-child {
+    display: none;
+  }
+
+  .intro-bottom-right {
+    gap: 48px;
+  }
+
+  .about-desc {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .about-desc p {
+    margin-bottom: 20px;
+  }
+
+  .about-desc p:last-child {
+    margin-bottom: 0;
+  }
+
+  .chips {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .chip {
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ═══════════════════════════ VIDEO SECTION ═══════════════════════════ */
+  .video-sec {
+    padding: 0;
+    height: auto;
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .play {
+    width: 128px;
+    height: 128px;
+  }
+
+  .play img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ═══════════════════════════ EXPERIENCE SECTION ═══════════════════════════ */
+  .exp-sec {
+    padding: 48px 20px 0;
+  }
+
+  .exp-sec .container {
+    padding: 0;
+  }
+
+  .exp-sec .header-section {
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .exp-sec .lbl {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 14px;
+    letter-spacing: 1.4px;
+  }
+
+  .exp-sec .stitle {
+    text-align: center;
+    font-size: clamp(28px, 7vw, 32px);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .exp-sec .subtitle {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 320px;
+  }
+
+  .exp-sec .subtitle p {
+    margin-bottom: 0;
+  }
+
+  /* Hide desktop timeline on mobile */
+  .timeline-desktop {
+    display: none !important;
+  }
+
+  /* Show mobile timeline */
+  .timeline-mobile {
+    display: block !important;
+    position: relative;
+  }
+
+  /* Vertical timeline line for mobile */
+  .timeline-line-vertical {
+    display: block !important;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, 
+      transparent 0%, 
+      var(--blue) 10%, 
+      var(--blue) 90%, 
+      transparent 100%);
+  }
+
+  .timeline-line-horizontal {
+    display: none !important;
+  }
+
+  .mobile-timeline-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .mobile-timeline-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .mobile-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #101415;
+    border: 4px solid var(--blue);
+    box-shadow: 0px 0px 15px 0px rgba(202, 190, 255, 0.6);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    margin-top: 24px;
+  }
+
+  .mobile-content {
+    flex: 1;
+    padding-top: 0;
+  }
+
+  .mobile-date {
+    font-family: var(--ff-body);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 14px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+
+  .timeline-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 0px 20px rgba(47, 169, 222, 0.15);
+  }
+
+  .card-header {
+    margin-bottom: 12px;
+  }
+
+  .card-title {
+    font-family: var(--ff-heading);
+    font-weight: 400;
+    color: var(--text-primary);
+    font-size: 20px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .card-subtitle {
+    font-family: var(--ff-body);
+    color: var(--purple);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .card-list {
+    font-family: var(--ff-body);
+    color: var(--text-muted);
+    font-size: 13px;
+    padding-left: 20px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .card-list li {
+    margin-bottom: 6px;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .card-tags .tag {
+    background: var(--chip-bg);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--chip-text);
+    font-size: 10px;
+    font-family: var(--ff-body);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ═══════════════════════════ PORTFOLIO SECTION ═══════════════════════════ */
+  .port-sec {
+    padding: 48px 20px 0;
+  }
+
+  .port-sec .container {
+    padding: 0;
+  }
+
+  .port-head {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 32px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .port-head > div:first-child {
+    margin-bottom: 0;
+  }
+
+  .port-head .lbl {
+    font-size: 14px;
+    letter-spacing: 1.4px;
+    margin-bottom: 24px;
+  }
+
+  .port-head .stitle {
+    font-size: clamp(28px, 7vw, 32px);
+    line-height: 1.2;
+  }
+
+  .port-nav {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .port-nav .arr {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Mobile portfolio - single card display with scroll */
+  .port-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .port-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .port-card {
+    min-width: 100%;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .port-img {
+    width: 100%;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;    /* kill any fixed height from desktop */
+    overflow: hidden;
+    border-radius: 24px;
+    background: #f2f5ff;
+    position: relative;
+  }
+
+  /* Ensure picture element fills container */
+  .port-img picture {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .port-img img,
+  .port-img picture img {
+    width: 100% !important;
+    height: 100% !important;    /* fill the aspect-ratio container */
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block;
+    min-height: unset !important;   /* cancel any min-height from desktop */
+    max-height: unset !important;   /* cancel any max-height from desktop */
+  }
+
+  /* Placeholder styles */
+  .gray-bg {
+    background: #e5e5e5;
+  }
+
+  .light-bg {
+    background: #f2f5ff;
+  }
+
+  .dark-bg {
+    background: #2a2a2a;
+  }
+
+  .ph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    font-family: var(--ff-body);
+    font-weight: 500;
+  }
+
+  .dark-bg .ph {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .port-foot {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .port-name {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .port-sub {
+    font-size: 14px;
+    color: #6b6b6b;
+  }
+
+  .port-lnk {
+    font-size: 14px;
+    color: var(--pink);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Portfolio Pagination Dots */
+  .port-pagination {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .port-dot {
+    background: white;
+    height: 4px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .port-dot.active {
+    width: 20px;
+    opacity: 1;
+  }
+
+  .port-dot:not(.active) {
+    width: 11px;
+    opacity: 0.2;
+  }
+
+  /* ═══════════════════════════ CONTACT SECTION ═══════════════════════════ */
+  #contact {
+    padding: 48px 20px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-container {
+    padding: 0;
+  }
+
+  .contact-wrap {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact-wrap > div:first-child {
+    flex: 1;
+  }
+
+  .contact-wrap .lbl {
+    font-size: 14px;
+    letter-spacing: 1.4px;
+  }
+
+  .contact-wrap .stitle {
+    font-size: clamp(28px, 7vw, 32px);
+    margin-top: 40px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .contact-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .contact-btns {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .pill-dark {
+    padding: 16px;
+    font-size: 18px;
+    flex: 1;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .contact-card {
+    padding: 24px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .contact-card h3 {
+    font-size: 24px;
+    font-family: var(--ff-heading);
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+
+  .ci-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .ci-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .ci-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .ci-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ci-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    fill: none;
+    stroke-width: 2;
+  }
+
+  .ci-details {
+    flex: 1;
+  }
+
+  .ci-lbl {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ci-val {
+    font-size: 18px;
+    font-weight: 600;
+    color: #e0e3e5;
+  }
+
+  /* ═══════════════════════════ FOOTER ═══════════════════════════ */
+  .contact-footer {
+    padding: 12px 0 24px;
+    margin-top: 0;
+    border-top: 1px solid #334155;
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .contact-footer > span {
+    font-size: 16px;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-secondary);
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* ── EXTRA SMALL MOBILE (< 380px) ── */
+@media (max-width: 380px) {
+  .hero-bg-name,
+  .hero-name-overlay {
+    font-size: 140px;
+  }
+
+  .hero-social {
+    left: 10px;
+  }
+
+  .hero-role {
+    font-size: 20px;
+    max-width: 200px;
+  }
+
+  .mt {
+    font-size: 32px;
+  }
+
+  .intro-title {
+    font-size: 26px;
+  }
+
+  .about-desc {
+    font-size: 17px;
+  }
+
+  .chip {
+    font-size: 17px;
+    padding: 14px;
+  }
+
+  .footer-links {
+    font-size: 11px;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* ── TABLET ADJUSTMENTS (481px - 768px) ── */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+
+  .hero {
+    min-height: 550px;
+  }
+
+  .hero-portrait {
+    width: 230px;
+    height: 350px;
+  }
+
+  .intro-title {
+    font-size: 30px;
+  }
+
+  .about-desc {
+    font-size: 17px;
+  }
+
+  .port-card {
+    min-width: 85%;
+  }
+}
+
+/* ── SHOW DESKTOP TIMELINE ON LARGER SCREENS ── */
+@media (min-width: 769px) {
+  .timeline-mobile {
+    display: none !important;
+  }
+
+  .timeline-desktop {
+    display: grid !important;
+  }
+
+  .timeline-line-vertical {
+    display: none !important;
+  }
+
+  .timeline-line-horizontal {
+    display: block !important;
+  }
+
+  .port-pagination {
+    display: none !important;
+  }
+}

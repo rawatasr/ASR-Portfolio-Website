@@ -255,42 +255,166 @@
   }
 }
 
-/* Mobile - 768px and below */
-@media (max-width: 768px) {
+/* Mobile - 767px and below */
+@media (max-width: 767px) {
+  /* Canvas */
   .hero {
-    height: 100vh;
-    min-height: 600px;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    min-height: 500px;
+    overflow: hidden;
+    background-image: url('../../assets/bg.png');
+    background-size: cover;
+    background-position: center center;
     border-radius: 0;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
   }
-  
+
+  /* Name - Two lines, oversized typography with better visibility */
   .hero-bg-name {
-    font-size: clamp(48px, 14vw, 120px);
-    letter-spacing: clamp(-0.04em, -0.02em, -0.01em);
-    padding: 0 clamp(5px, 1vw, 15px);
-    top: 50%;
+    position: absolute;
+    top: 132px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 140px;
+    font-weight: 700;
+    line-height: 0.82;
+    letter-spacing: -0.035em;
+    white-space: normal;
+    z-index: 2;
+    padding: 0;
+    box-sizing: border-box;
+    word-spacing: 9999px;
   }
-  
+
+  /* Hide overlay on mobile */
+  .hero-name-overlay {
+    display: none;
+  }
+
+  /* Portrait - scaled and positioned for better balance */
   .hero-portrait {
-    height: 85%;
+    position: absolute;
+    bottom: 0;
+    left: 52%;
+    transform: translateX(-50%);
+    height: 88%;
+    width: auto;
+    max-width: 65%;
+    object-fit: contain;
+    object-position: bottom center;
+    z-index: 3;
+    filter: grayscale(100%) contrast(1.1);
   }
-  
+
+  /* Role title - upper right with more breathing room */
   .hero-role {
-    font-size: 24px;
-    right: 20px;
-    bottom: 80px;
+    position: absolute;
+    top: 56px;
+    left: 100px;
+    right: 28px;
+    text-align: right;
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    line-height: 1.0;
+    z-index: 5;
+    font-weight: 700;
+    color: #111;
   }
-  
+
+  /* Social pills - better integration with portrait base */
   .hero-social {
-    left: 20px;
-    bottom: 20px;
-    flex-direction: row;
-    gap: 8px;
+    position: absolute;
+    left: 24px;
+    bottom: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 5;
   }
-  
-  .fi { 
-    display: none; 
+
+  .hero-social .pill-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+    padding: 12px 24px 12px 14px;
+    font-size: 15px;
+    font-weight: 600;
   }
-  
+
+  .hero-social .pill-btn img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Floating icons - refined positions for better balance */
+  .fi {
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+    border-radius: 22%;
+  }
+
+  .fi img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  }
+
+  /* Instagram - top left, moved inward and upward */
+  .fi-ig {
+    top: 54px;
+    left: 24px;
+    width: 74px;
+    height: 74px;
+    animation: floatUpDown 3.0s ease-in-out infinite 0.0s;
+  }
+
+  .fi-ig img {
+    border-radius: 22%;
+  }
+
+  /* Memoji - top right with more spacing from edge */
+  .fi-mm {
+    top: 30px;
+    right: 24px;
+    width: 66px;
+    height: 66px;
+    animation: floatUpDown 3.0s ease-in-out infinite 0.6s;
+  }
+
+  .fi-mm img {
+    border-radius: 50%;
+  }
+
+  /* YouTube - bottom right, lower position */
+  .fi-yt {
+    bottom: 65px;
+    right: 24px;
+    width: 70px;
+    height: 70px;
+    animation: floatUpDown 3.0s ease-in-out infinite 1.1s;
+    left: auto;
+  }
+
+  /* Float animation - reduced travel distance for mobile */
+  @keyframes floatUpDown {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-6px); 
+    }
+  }
+
   .hero-blob-1,
   .hero-blob-2 {
     display: none;

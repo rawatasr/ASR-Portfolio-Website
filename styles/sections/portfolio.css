@@ -42,6 +42,11 @@
   margin-right: 0;
 }
 
+/* Portfolio Pagination - Hidden by default (shown on mobile) */
+.port-pagination {
+  display: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .port-head {
@@ -51,7 +56,7 @@
   }
   
   .port-nav {
-    align-self: flex-end;
+    display: none;
   }
 }
 

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvind Rawat - UI/UX Designer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Manrope:wght@400;500;600;700&family=Inter:wght@400&family=Rajdhani:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #111; color: white; font-family: 'Manrope', sans-serif; overflow-x: hidden; line-height: 1.5; }
+        .container { max-width: 430px; margin: 0 auto; position: relative; }
+        
+        /* Hero */
+        .hero { position: relative; background-color: #dcdcdc; min-height: 500px; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; overflow: hidden; padding: 0 20px; }
+        .hero-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(80px, 20vw, 120px); line-height: 0.9; text-transform: uppercase; color: #111; text-align: center; padding-top: 128px; padding-bottom: 80px; position: relative; z-index: 10; }
+        .hero-portrait { position: absolute; left: 50%; top: 50%; transform: translate(-50%, 64px); width: 246px; height: 377px; z-index: 10; pointer-events: none; }
+        .hero-portrait-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; opacity: 0.3; }
+        .social-links { position: absolute; left: 20px; top: 358px; z-index: 20; display: flex; flex-direction: column; gap: 12px; }
+        .social-btn { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 16px; border-radius: 24px; display: flex; align-items: center; gap: 6px; border: none; cursor: pointer; transition: all 0.3s; }
+        .social-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+        .social-btn span { font-family: 'Manrope', sans-serif; color: #111; font-size: 18px; }
+        .hero-subtitle { position: absolute; right: 20px; top: 94px; font-family: 'Oswald', sans-serif; font-weight: 700; color: #111; text-align: right; font-size: clamp(24px, 6vw, 32px); line-height: 1.2; max-width: 275px; }
+        .hero-icon { position: absolute; width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); opacity: 0.4; }
+        .icon-instagram { left: 12px; top: 56px; transform: rotate(18deg); }
+        .icon-memoji { right: 90px; top: -4px; transform: rotate(-10deg); }
+        .icon-youtube { right: 0; bottom: 128px; transform: rotate(-42deg); }
+        
+        /* Scrolling */
+        .work-scroll { position: relative; height: 144px; overflow: hidden; margin: 16px 0; }
+        .scroll-gradient-left { position: absolute; left: 0; top: 0; height: 100%; width: 128px; background: linear-gradient(to right, #111, transparent); z-index: 10; }
+        .scroll-gradient-right { position: absolute; right: 0; top: 0; height: 100%; width: 128px; background: linear-gradient(to left, #111, transparent); z-index: 10; }
+        .scroll-content { display: flex; gap: 24px; animation: scroll 30s linear infinite; white-space: nowrap; align-items: center; height: 100%; }
+        .work-item { display: flex; gap: 8px; align-items: flex-start; }
+        .work-label { font-family: 'Manrope', sans-serif; color: white; font-size: 14px; letter-spacing: 1.4px; text-transform: capitalize; margin-top: 4px; }
+        .work-title { font-family: 'Oswald', sans-serif; font-size: 48px; text-transform: uppercase; }
+        .work-purple { color: #7b6ceb; }
+        .work-blue { color: #2fa9de; }
+        .work-pink { color: #d62976; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        /* Sections */
+        section { padding: 48px 20px; position: relative; }
+        .section-bg { position: absolute; inset: 0; opacity: 0.05; pointer-events: none; background: radial-gradient(circle at 50% 50%, #2fa9de 0%, transparent 70%); }
+        .section-label { font-family: 'Manrope', sans-serif; font-weight: 500; color: #7b6ceb; font-size: 14px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 48px; }
+        .section-title { font-family: 'Oswald', sans-serif; font-weight: 700; color: white; font-size: clamp(28px, 7vw, 32px); line-height: 1.2; margin-bottom: 48px; }
+        .highlight-blue { color: #2fa9de; }
+        
+        /* Info Pills */
+        .info-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 48px; }
+        .info-pill { background: rgba(255, 255, 255, 0.1); padding: 16px; border-radius: 24px; display: flex; align-items: center; gap: 8px; }
+        .info-pill-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; flex-shrink: 0; }
+        .info-pill span { font-family: 'Manrope', sans-serif; color: white; font-size: 18px; }
+        
+        /* Video */
+        .video-preview { padding: 32px 20px; }
+        .video-container { position: relative; background-color: #d9d9d9; width: 100%; height: 300px; border-radius: 8px; }
+        .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 128px; height: 128px; background: none; border: none; cursor: pointer; transition: transform 0.3s; }
+        .play-button:hover { transform: translate(-50%, -50%) scale(1.1); }
+        
+        /* Experience */
+        .experience { display: flex; gap: 12px; align-items: flex-start; }
+        .timeline { display: flex; flex-direction: column; align-items: center; padding-top: 24px; gap: 240px; }
+        .timeline-dot { width: 20px; height: 20px; border-radius: 50%; background: #101415; border: 4px solid #2fa9de; box-shadow: 0px 0px 15px 0px rgba(202, 190, 255, 0.6); }
+        .experience-list { flex: 1; display: flex; flex-direction: column; gap: 32px; }
+        .experience-item { display: flex; flex-direction: column; gap: 12px; }
+        .experience-date { font-family: 'Manrope', sans-serif; font-weight: 600; color: white; font-size: 16px; }
+        .experience-card { background: #1d2022; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 25px; box-shadow: 0px 0px 20px rgba(47, 169, 222, 0.15); }
+        .experience-company { font-family: 'Manrope', sans-serif; font-weight: 700; color: white; font-size: 18px; margin-bottom: 4px; }
+        .experience-role { font-family: 'Manrope', sans-serif; color: #d8d8d8; font-size: 14px; margin-bottom: 12px; }
+        .experience-card ul { font-family: 'Manrope', sans-serif; color: white; font-size: 12px; padding-left: 20px; margin-bottom: 16px; }
+        .experience-card li { margin-bottom: 4px; }
+        .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag { background: #3b3b3c; padding: 4px 8px; border-radius: 4px; color: #bcbcbc; font-size: 12px; font-family: 'Manrope', sans-serif; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        
+        /* Portfolio */
+        .portfolio-preview { background: #f2f5ff; border-radius: 24px; height: 350px; overflow: hidden; position: relative; margin-bottom: 24px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px; }
+        .portfolio-mockup-placeholder { width: 200px; height: 320px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .portfolio-info h3 { font-family: 'Manrope', sans-serif; font-weight: 600; color: white; font-size: 20px; margin-bottom: 4px; }
+        .portfolio-platform { font-family: 'Manrope', sans-serif; color: #6b6b6b; font-size: 14px; margin-bottom: 12px; }
+        .case-study-link { display: flex; align-items: center; gap: 4px; color: #d62976; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 14px; text-decoration: none; cursor: pointer; background: none; border: none; }
+        .pagination-dots { display: flex; gap: 4px; justify-content: center; margin-top: 24px; }
+        .dot { background: white; height: 4px; border-radius: 2px; }
+        .dot.active { width: 20px; opacity: 1; }
+        .dot.inactive { width: 11px; opacity: 0.2; }
+        
+        /* Contact */
+        .contact-buttons { display: flex; gap: 12px; margin-bottom: 32px; }
+        .contact-info-box { background: rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 24px; margin-top: 64px; }
+        .contact-info-title { font-family: 'Oswald', sans-serif; font-weight: 700; color: white; font-size: 24px; margin-bottom: 32px; }
+        .contact-item { display: flex; gap: 12px; align-items: center; margin-bottom: 32px; }
+        .contact-item:last-child { margin-bottom: 0; }
+        .contact-icon { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-details { flex: 1; }
+        .contact-label { font-family: 'Inter', sans-serif; color: white; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .contact-value { font-family: 'Manrope', sans-serif; font-weight: 600; color: #e0e3e5; font-size: 18px; }
+        
+        /* Footer */
+        footer { padding: 20px; }
+        .footer-content { padding-top: 12px; border-top: 1px solid #334155; }
+        .copyright { font-family: 'Rajdhani', sans-serif; color: #d8d8d8; text-align: center; font-size: 16px; margin-bottom: 32px; }
+        .footer-links { display: flex; justify-content: space-between; font-family: 'Rajdhani', sans-serif; color: #d8d8d8; font-size: 14px; }
+        
+        @media (max-width: 380px) {
+            .hero-title { font-size: 70px; }
+            .social-links { left: 10px; }
+            .footer-links { font-size: 11px; }
+        }
+        @media (min-width: 431px) {
+            .container { box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">Arvind<br>Rawat</h1>
+            <div class="hero-portrait"><div class="hero-portrait-placeholder"></div></div>
+            <div class="social-links">
+                <button class="social-btn"><span>🔗 LinkedIn</span></button>
+                <button class="social-btn"><span>🎨 Behance</span></button>
+            </div>
+            <div class="hero-subtitle">// UI/UX & Graphic Designer</div>
+            <div class="hero-icon icon-instagram"></div>
+            <div class="hero-icon icon-memoji"></div>
+            <div class="hero-icon icon-youtube"></div>
+        </section>
+
+        <!-- Scrolling Work Types -->
+        <div class="work-scroll">
+            <div class="scroll-gradient-left"></div>
+            <div class="scroll-gradient-right"></div>
+            <div class="scroll-content">
+                <div class="work-item"><span class="work-label">Works</span><span class="work-title work-purple">Logo Marking</span></div>
+                <div class="work-item"><span class="work-label">Works</span><span class="work-title work-blue">UI/UX Design</span></div>
+                <div class="work-item"><span class="work-label">Works</span><span class="work-title work-pink">Branding</span></div>
+                <div class="work-item"><span class="work-label">Works</span><span class="work-title work-blue">Social Media Design</span></div>
+                <div class="work-item"><span class="work-label">Works</span><span class="work-title work-purple">Logo Marking</span></div>
+                <div class="work-item"><span class="work-label">Works</span><span class="work-title work-blue">UI/UX Design</span></div>
+                <div class="work-item"><span class="work-label">Works</span><span class="work-title work-pink">Branding</span></div>
+                <div class="work-item"><span class="work-label">Works</span><span class="work-title work-blue">Social Media Design</span></div>
+            </div>
+        </div>
+
+        <!-- Intro Section -->
+        <section style="position: relative; z-index: 1;">
+            <div class="section-bg"></div>
+            <p class="section-label">// INTRO</p>
+            <h2 class="section-title">I'm a Chandigarh-based <span class="highlight-blue">UI/UX & Graphic Designer</span> with over 5 years of experience creating intuitive and impactful digital experiences.</h2>
+            <p style="font-size: 18px; line-height: 1.5; margin-bottom: 48px;">I specialize in designing mobile applications, websites, and branding visuals that not only look great but also solve real user problems.<br><br>My journey started with graphic design, and over time I expanded into UI/UX design, combining creativity with user-centered thinking to deliver meaningful design solutions.</p>
+            <div class="info-pills">
+                <div class="info-pill"><div class="info-pill-icon"></div><span>Chandigarh, India</span></div>
+                <div class="info-pill"><div class="info-pill-icon"></div><span>4.6+ Years Experience</span></div>
+                <div class="info-pill"><div class="info-pill-icon"></div><span>BA Graduate</span></div>
+            </div>
+        </section>
+
+        <!-- Video Preview -->
+        <div class="video-preview">
+            <div class="video-container">
+                <button class="play-button">▶</button>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <section>
+            <p class="section-label" style="text-align: center; margin-bottom: 24px;">// EXPERIENCE</p>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 12px;">Professional Journey</h2>
+            <p style="font-size: 16px; text-align: center; margin-bottom: 32px;">A chronological narrative of my career evolution in UI/UX and Graphic Design, marked by precision and creative leadership.</p>
+            <div class="experience">
+                <div class="timeline">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="experience-list">
+                    <div class="experience-item">
+                        <p class="experience-date">FEB 2021 - JUN 2021</p>
+                        <div class="experience-card">
+                            <h3 class="experience-company">Webtech Learning</h3>
+                            <p class="experience-role">Web & Graphic Designing Training</p>
+                            <ul><li>Learned design fundamentals</li><li>Basics of HTML & CSS</li></ul>
+                            <div class="tags"><span class="tag">UI DESIGN</span><span class="tag">UX THEORY</span></div>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <p class="experience-date">JUN 2021 – JAN 2022</p>
+                        <div class="experience-card">
+                            <h3 class="experience-company">Blacklisted Agency</h3>
+                            <p class="experience-role">Graphic Designer</p>
+                            <ul><li>Designed vector illustrations</li><li>Created social media posts using Illustrator</li></ul>
+                            <div class="tags"><span class="tag">VISUAL ARTS</span><span class="tag">MARKETING</span></div>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <p class="experience-date">FEB 2022 – MAR 2024</p>
+                        <div class="experience-card">
+                            <h3 class="experience-company">Sntrix</h3>
+                            <p class="experience-role">UI/UX & Graphic Designer</p>
+                            <ul><li>Designed websites using Figma and Adobe tools</li><li>Created logos and social media graphics</li></ul>
+                            <div class="tags"><span class="tag">WEBSITE</span><span class="tag">BRANDING</span></div>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <p class="experience-date">APR 2024 – PRESENT</p>
+                        <div class="experience-card">
+                            <h3 class="experience-company">Sunfocus Solution</h3>
+                            <p class="experience-role">UI/UX & Graphic Designer</p>
+                            <ul><li>Designing mobile and web applications</li><li>Creating marketing and social media creatives</li></ul>
+                            <div class="tags"><span class="tag">PRODUCT DESIGN</span><span class="tag">STRATEGY</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section>
+            <p class="section-label" style="text-align: center; margin-bottom: 24px;">// PORTFOLIO</p>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 32px;">Precision in Craft,<br>Depth in Execution.</h2>
+            <div class="portfolio-preview"><div class="portfolio-mockup-placeholder"></div></div>
+            <div class="portfolio-info">
+                <h3>Acceptmyprice</h3>
+                <p class="portfolio-platform">Platform: Web & Mobile App</p>
+                <a href="#" class="case-study-link">View Case Study →</a>
+            </div>
+            <div class="pagination-dots">
+                <div class="dot active"></div>
+                <div class="dot inactive"></div>
+                <div class="dot inactive"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section style="position: relative; z-index: 1;">
+            <div class="section-bg"></div>
+            <p class="section-label">// CONTACT</p>
+            <h2 class="section-title" style="margin-bottom: 12px;">Let's Work Together</h2>
+            <p style="font-size: 16px; line-height: 1.8; margin-bottom: 32px;">I'm currently looking for new opportunities and collaborations. If you have a project in mind or just want to say hi, my inbox is always open.</p>
+            <div class="contact-buttons">
+                <button class="social-btn" style="background: rgba(255, 255, 255, 0.1);"><span style="color: white;">🔗 LinkedIn</span></button>
+                <button class="social-btn" style="background: rgba(255, 255, 255, 0.1);"><span style="color: white;">🎨 Behance</span></button>
+            </div>
+            <div class="contact-info-box">
+                <h3 class="contact-info-title">Contact Info</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-details">
+                        <p class="contact-label">Email Address</p>
+                        <p class="contact-value">rawatasr01@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-details">
+                        <p class="contact-label">Direct Line</p>
+                        <p class="contact-value">+91 90562-78405</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-details">
+                        <p class="contact-label">Base</p>
+                        <p class="contact-value">Chandigarh, India</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p class="copyright">© 2026 Arvind Rawat. All rights reserved.</p>
+                <div class="footer-links">
+                    <span>Terms and conditions</span>
+                    <span>Cookies policy</span>
+                    <span>Privacy policy</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

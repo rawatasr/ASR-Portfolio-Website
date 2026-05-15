@@ -8,6 +8,9 @@ window.initParallax = function() {
   if (!heroBg && !heroOv) return;
 
   window.addEventListener('scroll', () => {
+    // Disable parallax on mobile viewports
+    if (window.innerWidth <= 768) return;
+
     const y = window.scrollY;
     const transform = `translate(-50%, calc(-50% + ${y * 0.28}px))`;
 

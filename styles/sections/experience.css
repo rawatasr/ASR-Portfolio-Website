@@ -43,8 +43,9 @@
 
 .timeline-section {
   position: relative;
-  padding: 80px 0 40px;
+  padding: 100px 0;
   margin-top: 40px;
+  /* Removed .reveal from section level to prevent massive layout calculations on start */
 }
 
 /* ── Timeline Lines ── */
@@ -54,14 +55,29 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(47, 169, 222, 0.3) 15%, 
-    rgba(47, 169, 222, 0.3) 85%, 
-    transparent 100%
-  );
+  background: rgba(47, 169, 222, 0.2);
   transform: translateY(-50%);
   z-index: 1;
+}
+
+.timeline-line-horizontal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  height: 100%;
+  background: var(--blue);
+  box-shadow: 0 0 15px var(--blue);
+}
+
+.timeline-line-horizontal.visible::after {
+  animation: growLine 1.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes growLine {
+  from { right: 100%; }
+  to { right: 0; }
 }
 
 .timeline-line-vertical {
@@ -75,6 +91,7 @@
   position: relative;
   z-index: 2;
   width: 100%;
+  height: 600px; /* Fixed height for absolute stability on desktop */
 }
 
 .timeline-item {
@@ -82,14 +99,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 520px;
+  height: 100%;
   justify-content: center;
+  will-change: transform, opacity;
 }
+
+/* Staggered reveal for premium feel */
+.timeline-item:nth-child(2) { transition-delay: 0.1s; }
+.timeline-item:nth-child(3) { transition-delay: 0.2s; }
+.timeline-item:nth-child(4) { transition-delay: 0.3s; }
+.timeline-item:nth-child(5) { transition-delay: 0.4s; }
 
 /* ── Timeline Dot ── */
 .timeline-dot {
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   background: var(--blue);
   border: 3px solid var(--bg);
   border-radius: 50%;
@@ -103,7 +127,7 @@
 }
 
 .timeline-item:hover .timeline-dot {
-  transform: translate(-50%, -50%) scale(1.5);
+  transform: translate(-50%, -50%) scale(1.3);
   box-shadow: 0 0 20px var(--blue);
   background: #fff;
 }
@@ -149,33 +173,34 @@
 .timeline-date {
   position: absolute;
   font-family: var(--ff-body);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--text-dim);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #FFF;
   white-space: nowrap;
   text-transform: uppercase;
 }
 
 .top-date {
-  top: calc(50% + 25px);
+  top: calc(50% + 30px);
 }
 
 .bottom-date {
-  bottom: calc(50% + 25px);
+  bottom: calc(50% + 30px);
 }
 
 /* ── Timeline Card ── */
 .timeline-card {
-  background: rgba(29, 32, 34, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(29, 32, 34, 0.7); /* Slightly more opaque for stability */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 28px;
   width: 100%;
   max-width: 310px;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  will-change: transform, opacity;
 }
 
 .timeline-item:hover .timeline-card {
@@ -196,10 +221,10 @@
 
 .card-subtitle {
   font-size: 14px;
-  color: var(--blue);
+  color: #7B6CEB;
   margin-bottom: 18px;
   font-weight: 500;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .card-list {
@@ -270,65 +295,122 @@
 }
 
 @media (max-width: 768px) {
-  .exp-sec { padding: 60px 0 80px; }
+  /* Match other sections: use var(--section-px) for horizontal padding */
+  .exp-sec { 
+    padding: 60px var(--section-px) 80px;
+  }
+  
+  /* Remove container constraint on mobile only - let content flow naturally */
+  .timeline-section .container {
+    max-width: 100%;
+    padding: 0;
+  }
   
   .timeline-desktop { display: none; }
   .timeline-line-horizontal { display: none; }
   
+  /* Timeline mobile takes full width within section padding */
   .timeline-mobile { 
-    display: flex; 
-    flex-direction: column;
-    gap: 50px;
-    position: relative;
-    padding-left: 40px;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .timeline-line-vertical {
     display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 10px;
-    width: 1px;
-    background: linear-gradient(to bottom, 
-      transparent 0%, 
-      rgba(47, 169, 222, 0.3) 10%, 
-      rgba(47, 169, 222, 0.3) 90%, 
-      transparent 100%
-    );
-    z-index: 1;
-  }
-  
-  .mobile-timeline-item {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .mobile-dot {
-    width: 10px;
-    height: 10px;
-    background: var(--blue);
-    border: 2px solid var(--bg);
-    border-radius: 50%;
-    position: absolute;
-    left: -30px;
-    top: 25px;
-    transform: translateX(-50%);
-  }
-  
-  .mobile-date {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--blue);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-  }
-  
-  .timeline-card {
+    padding: 0;
     max-width: 100%;
-    padding: 24px;
+    margin: 0;
+  }
+  
+  /* ── Item row ── */
+  .timeline-mobile .mob-item {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  /* ── Left spine: dot + vertical line stacked ── */
+  .timeline-mobile .mob-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36px;
+    flex-shrink: 0;
+    align-self: stretch;
+  }
+
+  /* ── Dot: sits at top of spine, aligned with date text ── */
+  .timeline-mobile .mob-dot {
+    flex-shrink: 0;
+    margin-top: 5px;
+    z-index: 1;
+    position: relative;
+  }
+
+  /* ── Vertical line: grows to fill exact height of card beside it ── */
+  .timeline-mobile .mob-vline {
+    width: 1.5px;
+    flex: 1;
+    margin-top: 2px;
+    background: rgba(47, 169, 222, 0.15);
+  }
+
+  /* ── Hide line on last item ── */
+  .timeline-mobile .mob-item:last-child .mob-vline,
+  .timeline-mobile .mob-item-last .mob-vline {
+    background: transparent;
+  }
+
+  /* ── Right body: date + card ── */
+  .timeline-mobile .mob-body {
+    flex: 1;
+    padding-left: 10px;
+    padding-bottom: 24px;
+    min-width: 0;
+  }
+
+  /* ── Date label sits directly above card ── */
+  .timeline-mobile .mobile-date {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* ── Card fills the body width ── */
+  .timeline-mobile .timeline-card {
+    margin: 0 !important;
+    width: auto !important;
+  }
+
+  /* ── Conflict Overrides: Stop desktop styles from bleeding in ── */
+  
+  /* Stop ALL CAPS title from desktop .card-title style */
+  .timeline-mobile .card-title {
+    text-transform: none !important;
+    letter-spacing: normal !important;
+  }
+
+  /* Stop oversized font from desktop .card-title style */
+  .timeline-mobile .card-title {
+    font-size: 16px !important;
+  }
+
+  /* Stop desktop card-subtitle color override if needed */
+  .timeline-mobile .card-subtitle {
+    color: #7B6CEB !important;
+  }
+
+  .professional-journey .header-section {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .timeline-section {
+    padding: 0;
+    margin-top: 0;
+  }
+
+  .professional-journey .subtitle {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 320px;
   }
 }
 

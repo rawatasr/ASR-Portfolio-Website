@@ -6,4 +6,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.initScrollReveal) window.initScrollReveal();
   if (window.initPortfolioScroll) window.initPortfolioScroll();
   if (window.initParallax) window.initParallax();
+  if (window.initContactInteractions) window.initContactInteractions();
 });

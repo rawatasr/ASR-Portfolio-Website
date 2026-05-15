@@ -10,8 +10,65 @@
 
   <!-- Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Manrope:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Manrope:wght@400;500;600;700&family=Inter:wght@400&family=Rajdhani:wght@400&display=swap"
     rel="stylesheet" />
+
+  <!-- Plyr Video Player -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <style>
+    :root {
+      --plyr-color-main: #2fa9de;
+      --plyr-video-background: #111;
+      --plyr-menu-background: #1d2022;
+      --plyr-menu-color: #ffffff;
+    }
+
+    /* Settings icon SVG sizing */
+    .plyr__control[data-plyr="settings"] svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Strip background from settings button wrapper & button to match other controls */
+    .plyr__menu,
+    .plyr--video .plyr__menu,
+    .plyr--full-ui .plyr__menu {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      position: relative !important;
+      min-width: unset !important;
+      margin-right: 8px !important;
+    }
+
+    .plyr__control[data-plyr="settings"],
+    .plyr--video .plyr__control[data-plyr="settings"],
+    .plyr--full-ui .plyr__control[data-plyr="settings"] {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: var(--plyr-control-radius, 3px) !important;
+    }
+
+    .plyr__control[data-plyr="settings"]:hover,
+    .plyr--video .plyr__control[data-plyr="settings"]:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* Extra space before the fullscreen button */
+    .plyr__control[data-plyr="fullscreen"] {
+      margin-left: 5px !important;
+    }
+  </style>
+
+  <!-- SVG Icons for custom controls -->
+  <svg style="display: none;">
+    <symbol id="plyr-settings" viewBox="0 0 18 18">
+      <path d="M15.5 9.8c0-.4 0-.7.1-1.1l1.4-1-1.4-2.4-1.6.6c-.6-.4-1.2-.7-1.8-1l-.3-1.7h-2.8l-.3 1.7c-.7.2-1.3.6-1.8 1l-1.6-.6-1.4 2.4 1.4 1c0 .4.1.7.1 1.1s0 .7-.1 1.1l-1.4 1 1.4 2.4 1.6-.6c.6.4 1.2.7 1.8 1l.3 1.7h2.8l.3-1.7c.7-.2 1.3-.6 1.8-1l1.6.6 1.4-2.4-1.4-1c0-.4-.1-.7-.1-1.1zm-6.5 2.2c-1.2 0-2.2-1-2.2-2.2s1-2.2 2.2-2.2 2.2 1 2.2 2.2-1 2.2-2.2 2.2z"/>
+    </symbol>
+  </svg>
 
   <!-- Styles: Design System -->
   <link rel="stylesheet" href="styles/reset.css" />
@@ -33,6 +90,9 @@
   <link rel="stylesheet" href="styles/sections/experience.css" />
   <link rel="stylesheet" href="styles/sections/portfolio.css" />
   <link rel="stylesheet" href="styles/sections/contact.css" />
+
+  <!-- Styles: Mobile Responsive -->
+  <link rel="stylesheet" href="styles/mobile.css" />
 </head>
 
 <body>
@@ -42,18 +102,19 @@
     <div class="hero-bg-name" id="heroBg">Arvind Rawat</div>
     <div class="hero-name-overlay" id="heroOv">Arvind Rawat</div>
 
-    <img class="hero-portrait" src="assets/HERO SECTION PERSON.png"
-      alt="Arvind Rawat" />
+    <img class="hero-portrait" src="assets/HERO SECTION PERSON.png" alt="Arvind Rawat" />
 
     <div class="hero-role">// UI/UX &amp; Graphic Designer</div>
 
     <div class="hero-social">
-      <a class="pill-btn" href="#">
-        <img src="https://www.figma.com/api/mcp/asset/995bb3dd-815f-4315-bf22-6ea103fe852d" alt="LinkedIn" />
+      <a class="pill-btn"
+        href="https://www.linkedin.com/in/arvind-rawat-6ab13720a?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+        target="_blank">
+        <img src="assets/Linkedin.svg" alt="LinkedIn" />
         LinkedIn
       </a>
-      <a class="pill-btn" href="#">
-        <img src="https://www.figma.com/api/mcp/asset/af950786-ec26-486a-9f56-431e8ff584ba" alt="Behance" />
+      <a class="pill-btn" href="https://www.behance.net/asrarvind" target="_blank">
+        <img src="assets/Behance.svg" alt="Behance" />
         Behance
       </a>
     </div>
@@ -149,9 +210,12 @@
                 creativity with user-centered thinking to deliver meaningful design solutions.</p>
             </div>
             <div class="chips">
-              <div class="chip">📍 Chandigarh, India</div>
-              <div class="chip">⏱️ 4.6+ Years Experience</div>
-              <div class="chip">🎓 BA Graduate</div>
+              <div class="chip"><img src="assets/location.png" alt="Location"
+                  style="width: 16px; height: 16px; object-fit: contain;"> Chandigarh, India</div>
+              <div class="chip"><img src="assets/year.png" alt="Experience"
+                  style="width: 16px; height: 16px; object-fit: contain;"> 5+ Years Experience</div>
+              <div class="chip"><img src="assets/education.png" alt="Education"
+                  style="width: 16px; height: 16px; object-fit: contain;"> BA Graduate</div>
             </div>
           </div>
         </div>
@@ -161,8 +225,23 @@
 
   <!-- ═══════════════════════════ VIDEO ═══════════════════════════ -->
   <section class="video-sec reveal">
-    <div class="play">
-      <img src="assets/play button.svg" alt="Play Button">
+    <div class="video-container" id="videoContainer">
+      <!-- Thumbnail with Play Button (shown before video loads) -->
+      <div class="video-thumbnail" id="videoThumbnail">
+        <img src="assets/videoThuubnail.png" alt="Video Thumbnail" class="thumbnail-image">
+        <button class="play-button-overlay" id="playButton" aria-label="Play Video">
+          <img src="assets/play button.svg" alt="Play" class="play-icon">
+        </button>
+      </div>
+      
+      <!-- Plyr Video Player (lazy loaded) -->
+      <div class="plyr__video-embed" id="player" style="display: none;">
+        <iframe
+          data-src="https://player.vimeo.com/video/1192497436?loop=1&autoplay=1&muted=0"
+          allowfullscreen
+          allow="autoplay; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
     </div>
   </section>
 
@@ -176,26 +255,23 @@
             <div class="lbl">// EXPERIENCE</div>
             <h2 class="stitle">Professional Journey</h2>
             <div class="subtitle">
-              <p>A chronological narrative of my career evolution in UI/UX and Graphic Design,</p>
-              <p>marked by precision and creative leadership.</p>
+              <p>A chronological narrative of my career evolution in UI/UX and Graphic Design, marked by precision and
+                creative leadership.</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Timeline Section -->
-      <div class="timeline-section reveal">
+      <div class="timeline-section">
         <div class="container">
           <!-- Horizontal Timeline Line (Desktop) -->
-          <div class="timeline-line-horizontal"></div>
-
-          <!-- Vertical Timeline Line (Mobile) -->
-          <div class="timeline-line-vertical"></div>
+          <div class="timeline-line-horizontal reveal"></div>
 
           <!-- Desktop Timeline -->
           <div class="timeline-desktop">
             <!-- Item 1: Webtech Learning (Bottom) -->
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
               <div class="timeline-container bottom">
                 <div class="vertical-divider top-divider"></div>
                 <div class="timeline-card">
@@ -220,7 +296,7 @@
             </div>
 
             <!-- Item 2: Blacklisted Agency (Top) -->
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
               <div class="timeline-container top">
                 <div class="timeline-card">
                   <div class="card-content">
@@ -245,7 +321,7 @@
             </div>
 
             <!-- Item 3: Sntrix (Bottom) -->
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
               <div class="timeline-container bottom">
                 <div class="vertical-divider top-divider"></div>
                 <div class="timeline-card">
@@ -270,7 +346,7 @@
             </div>
 
             <!-- Item 4: Sunfocus Solution (Top) -->
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
               <div class="timeline-container top">
                 <div class="timeline-card">
                   <div class="card-content">
@@ -298,9 +374,12 @@
           <!-- Mobile Timeline -->
           <div class="timeline-mobile">
             <!-- Item 1 -->
-            <div class="mobile-timeline-item">
-              <div class="mobile-dot"></div>
-              <div class="mobile-content">
+            <div class="mob-item reveal">
+              <div class="mob-spine">
+                <div class="mob-dot mobile-dot"></div>
+                <div class="mob-vline"></div>
+              </div>
+              <div class="mob-body">
                 <div class="mobile-date">FEB 2021 - JUN 2021</div>
                 <div class="timeline-card">
                   <div class="card-content">
@@ -322,9 +401,12 @@
             </div>
 
             <!-- Item 2 -->
-            <div class="mobile-timeline-item">
-              <div class="mobile-dot"></div>
-              <div class="mobile-content">
+            <div class="mob-item reveal">
+              <div class="mob-spine">
+                <div class="mob-dot mobile-dot"></div>
+                <div class="mob-vline"></div>
+              </div>
+              <div class="mob-body">
                 <div class="mobile-date">JUN 2021 – JAN 2022</div>
                 <div class="timeline-card">
                   <div class="card-content">
@@ -346,9 +428,12 @@
             </div>
 
             <!-- Item 3 -->
-            <div class="mobile-timeline-item">
-              <div class="mobile-dot"></div>
-              <div class="mobile-content">
+            <div class="mob-item reveal">
+              <div class="mob-spine">
+                <div class="mob-dot mobile-dot"></div>
+                <div class="mob-vline"></div>
+              </div>
+              <div class="mob-body">
                 <div class="mobile-date">FEB 2022 – MAR 2024</div>
                 <div class="timeline-card">
                   <div class="card-content">
@@ -370,9 +455,12 @@
             </div>
 
             <!-- Item 4 -->
-            <div class="mobile-timeline-item">
-              <div class="mobile-dot"></div>
-              <div class="mobile-content">
+            <div class="mob-item mob-item-last reveal">
+              <div class="mob-spine">
+                <div class="mob-dot mobile-dot active"></div>
+                <div class="mob-vline"></div>
+              </div>
+              <div class="mob-body">
                 <div class="mobile-date">APR 2024 – PRESENT</div>
                 <div class="timeline-card">
                   <div class="card-content">
@@ -407,105 +495,296 @@
           <h2 class="stitle">Precision in Craft,<br>Depth in Execution.</h2>
         </div>
         <div class="port-nav">
-          <button class="arr" onclick="scrollPort(-1)"><svg viewBox="0 0 24 24">
-              <polyline points="15 18 9 12 15 6" />
-            </svg></button>
-          <button class="arr" onclick="scrollPort(1)"><svg viewBox="0 0 24 24">
-              <polyline points="9 18 15 12 9 6" />
-            </svg></button>
+          <button class="arr prev-arr" onclick="scrollPort(-1)">
+            <img src="assets/back.svg" alt="Back" class="icon-default">
+            <img src="assets/back hover.svg" alt="Back" class="icon-hover">
+          </button>
+          <button class="arr next-arr" onclick="scrollPort(1)">
+            <img src="assets/next.svg" alt="Next" class="icon-default">
+            <img src="assets/next hover.svg" alt="Next" class="icon-hover">
+          </button>
         </div>
       </div>
 
       <div class="port-grid reveal" id="portGrid">
 
-        <!-- Card 1 -->
+        <!-- Card 1: Reelify -->
         <div class="port-card">
           <div class="port-img">
-            <img src="https://www.figma.com/api/mcp/asset/a6886d65-6852-45b0-9133-00b33fedeb17" alt="Acceptmyprice"
-              style="filter:brightness(0.82) contrast(1.05);" />
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Reelify%20mobile.webp">
+              <img src="assets/work image/dektop view/Reelify.webp" alt="Reelify" />
+            </picture>
           </div>
           <div class="port-foot">
             <div>
-              <div class="port-name">Acceptmyprice</div>
-              <div class="port-sub">Platform: Web &amp; Mobile App</div>
+              <div class="port-name">Reelify</div>
+              <div class="port-sub">Platform: Mobile App</div>
             </div>
-            <a class="port-lnk" href="#">View Case Study<svg viewBox="0 0 24 24">
+            <a class="port-lnk" href="https://www.behance.net/gallery/244175333/Reelify-Smart-Reel-Making-App" target="_blank">View Case Study<svg viewBox="0 0 24 24">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg></a>
           </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 2: Learning+ -->
         <div class="port-card">
-          <div class="port-img gray-bg">
-            <div class="ph">
-              <svg width="56" height="56" viewBox="0 0 56 56">
-                <circle cx="28" cy="22" r="13" fill="#d62976" />
-                <rect x="8" y="38" width="40" height="7" rx="3" fill="#888" />
-              </svg>
-              <div style="margin-top:8px;">Brand Identity</div>
-            </div>
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Learning+%20mobile.webp">
+              <img src="assets/work image/dektop view/Learning+.webp" alt="Learning+" />
+            </picture>
           </div>
           <div class="port-foot">
             <div>
-              <div class="port-name">Brand Identity</div>
-              <div class="port-sub">Platform: Branding &amp; Print</div>
+              <div class="port-name">Learning+</div>
+              <div class="port-sub">Platform: Mobile App</div>
             </div>
-            <a class="port-lnk" href="#">View Case Study<svg viewBox="0 0 24 24">
+            <a class="port-lnk" href="https://www.behance.net/gallery/244172071/Learning-Smart-Online-Education-Platform" target="_blank">View Case Study<svg viewBox="0 0 24 24">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg></a>
           </div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 3: CoachNest -->
         <div class="port-card">
-          <div class="port-img light-bg">
-            <div class="ph" style="color:rgba(0,0,0,0.3);">
-              <svg width="56" height="56" viewBox="0 0 56 56">
-                <rect x="4" y="12" width="48" height="32" rx="5" fill="#2fa9de" opacity=".5" />
-                <rect x="12" y="20" width="32" height="4" rx="2" fill="#fff" opacity=".5" />
-                <rect x="12" y="28" width="20" height="4" rx="2" fill="#fff" opacity=".4" />
-              </svg>
-              <div style="margin-top:8px;">Dashboard UI</div>
-            </div>
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/CoachNest%20mobile.webp">
+              <img src="assets/work image/dektop view/CoachNest.webp" alt="CoachNest" />
+            </picture>
           </div>
           <div class="port-foot">
             <div>
-              <div class="port-name">Dashboard UI</div>
-              <div class="port-sub">Platform: Web App</div>
+              <div class="port-name">CoachNest</div>
+              <div class="port-sub">Platform: Mobile App</div>
             </div>
-            <a class="port-lnk" href="#">View Case Study<svg viewBox="0 0 24 24">
+            <a class="port-lnk" href="https://www.behance.net/gallery/244173503/CoachNest-Where-Learning-Takes-Shape" target="_blank">View Case Study<svg viewBox="0 0 24 24">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg></a>
           </div>
         </div>
 
-        <!-- Card 4 -->
+        <!-- Card 4: Expense.AI -->
         <div class="port-card">
-          <div class="port-img dark-bg">
-            <div class="ph">
-              <svg width="56" height="56" viewBox="0 0 56 56">
-                <rect x="16" y="4" width="24" height="48" rx="5" fill="#7b6ceb" opacity=".5" />
-                <rect x="20" y="10" width="16" height="8" rx="2" fill="#fff" opacity=".3" />
-              </svg>
-              <div style="margin-top:8px;">Mobile App</div>
-            </div>
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Expense.AI%20mobile.webp">
+              <img src="assets/work image/dektop view/Expense.AI.webp" alt="Expense.AI" />
+            </picture>
           </div>
           <div class="port-foot">
             <div>
-              <div class="port-name">HealthTrack App</div>
-              <div class="port-sub">Platform: iOS &amp; Android</div>
+              <div class="port-name">Expense.AI</div>
+              <div class="port-sub">Platform: Mobile App</div>
             </div>
-            <a class="port-lnk" href="#">View Case Study<svg viewBox="0 0 24 24">
+            <a class="port-lnk" href="https://www.behance.net/gallery/244173911/ExpenseAI-Smart-Finance-Management-Dashboard" target="_blank">View Case Study<svg viewBox="0 0 24 24">
                 <line x1="7" y1="17" x2="17" y2="7"></line>
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg></a>
           </div>
         </div>
 
+        <!-- Card 5: EliteX -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/EliteX%20Mobile.webp">
+              <img src="assets/work image/dektop view/EliteX.webp" alt="EliteX" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">EliteX</div>
+              <div class="port-sub">Platform: Mobile App</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/244173137/EliteX-Premium-Fitness-Training-App" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Card 6: MedBot -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/MedBot%20mobile.webp">
+              <img src="assets/work image/dektop view/MedBot.webp" alt="MedBot" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">MedBot</div>
+              <div class="port-sub">Platform: Mobile App</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/244174321/MedBot-AI-Driven-Healthcare-SaaS" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Card 7: Recipes Roots -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Recipes%20Roots%20mobile.webp">
+              <img src="assets/work image/dektop view/Recipes Roots.webp" alt="Recipes Roots" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">Recipes Roots</div>
+              <div class="port-sub">Platform: Mobile App</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/244161919/Recipes-Roots-AI-Powered-Voice-Recipe-App" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Card 8: Agency -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Agency%20mobile.webp">
+              <img src="assets/work image/dektop view/Agency.webp" alt="Agency" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">Agency</div>
+              <div class="port-sub">Platform: Website</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/182919533/agency-Digital-Marketing-Website" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Card 9: Designing Agency -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Designing%20Agency%20mobile.webp">
+              <img src="assets/work image/dektop view/Designing Agency.webp" alt="Designing Agency" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">Designing Agency</div>
+              <div class="port-sub">Platform: Website</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/186684903/Designing-Agency" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Card 10: Learning+ (website) -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Learning+%20(website)%20mobile.webp">
+              <img src="assets/work image/dektop view/Learning+ (website).webp" alt="Learning+ Website" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">Learning+</div>
+              <div class="port-sub">Platform: Website</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/244172539/Learning-EdTech-Promotional-Website-Design" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Card 11: NexBlock -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/NexBlock%20mobile.webp">
+              <img src="assets/work image/dektop view/NexBlock.webp" alt="NexBlock" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">NexBlock</div>
+              <div class="port-sub">Platform: Website</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/244174675/NexBlock-Digital-Wellbeing-Privacy-App" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Card 12: RefineHuman -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/RefineHuman%20mobile.webp">
+              <img src="assets/work image/dektop view/RefineHuman.webp" alt="RefineHuman" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">RefineHuman</div>
+              <div class="port-sub">Platform: Website</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/244163223/RefineHuman-Fitness-Expert-Consultation-Platform" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+        <!-- Card 13: Éclat Gems -->
+        <div class="port-card">
+          <div class="port-img">
+            <picture>
+              <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Éclat%20Gems%20mobile.webp">
+              <img src="assets/work image/dektop view/Éclat Gems.webp" alt="Éclat Gems" />
+            </picture>
+          </div>
+          <div class="port-foot">
+            <div>
+              <div class="port-name">Éclat Gems</div>
+              <div class="port-sub">Platform: Website</div>
+            </div>
+            <a class="port-lnk" href="https://www.behance.net/gallery/183000959/Eclat-Gems-Jewelry-website" target="_blank">View Case Study<svg viewBox="0 0 24 24">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Portfolio Pagination Dots (Mobile) -->
+      <div class="port-pagination">
+        <div class="port-dot active"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
+        <div class="port-dot"></div>
       </div>
     </div>
   </section>
@@ -520,12 +799,14 @@
           <p class="contact-desc">I'm currently looking for new opportunities and collaborations. If you have a project
             in mind or just want to say hi, my inbox is always open.</p>
           <div class="contact-btns">
-            <a class="pill-dark" href="#">
-              <img src="https://www.figma.com/api/mcp/asset/995bb3dd-815f-4315-bf22-6ea103fe852d" alt="LinkedIn" />
+            <a class="pill-dark"
+              href="https://www.linkedin.com/in/arvind-rawat-6ab13720a?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+              target="_blank">
+              <img src="assets/Linkedin.svg" alt="LinkedIn" />
               LinkedIn
             </a>
-            <a class="pill-dark" href="#">
-              <img src="https://www.figma.com/api/mcp/asset/af950786-ec26-486a-9f56-431e8ff584ba" alt="Behance" />
+            <a class="pill-dark" href="https://www.behance.net/asrarvind" target="_blank">
+              <img src="assets/Behance.svg" alt="Behance" />
               Behance
             </a>
           </div>
@@ -533,7 +814,7 @@
         <div class="contact-card">
           <h3>Contact Info</h3>
           <div class="ci-list">
-            <div class="ci-item">
+            <a href="mailto:rawatasr01@gmail.com?subject=Project Inquiry — Arvind Rawat" target="_self" class="ci-item link-item">
               <div class="ci-icon"><svg viewBox="0 0 24 24">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
@@ -542,8 +823,8 @@
                 <div class="ci-lbl">EMAIL ADDRESS</div>
                 <div class="ci-val">rawatasr01@gmail.com</div>
               </div>
-            </div>
-            <div class="ci-item">
+            </a>
+            <a href="tel:+919056278405" class="ci-item link-item" id="phone-link">
               <div class="ci-icon"><svg viewBox="0 0 24 24">
                   <path
                     d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.6 1.28h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
@@ -552,8 +833,9 @@
                 <div class="ci-lbl">DIRECT LINE</div>
                 <div class="ci-val">+91 90562-78405</div>
               </div>
-            </div>
-            <div class="ci-item">
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Chandigarh,+India" target="_blank"
+              class="ci-item link-item">
               <div class="ci-icon"><svg viewBox="0 0 24 24">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                   <circle cx="12" cy="10" r="3" />
@@ -562,10 +844,13 @@
                 <div class="ci-lbl">BASE</div>
                 <div class="ci-val">Chandigarh, India</div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast">Phone number copied</div>
 
       <footer class="contact-footer">
         <span>© 2026 Arvind Rawat. All rights reserved.</span>
@@ -582,7 +867,319 @@
   <script src="js/scroll-reveal.js"></script>
   <script src="js/portfolio-scroll.js"></script>
   <script src="js/parallax.js"></script>
+  <script src="js/contact-interactions.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- Vimeo Player API (load first) -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  
+  <!-- Plyr Video Player -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+  <script>
+    let player = null;
+    let vimeoPlayer = null;
+    let currentQuality = 'auto';
+    let isVideoLoaded = false;
+
+    // Handle play button click - lazy load video
+    document.getElementById('playButton').addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (!isVideoLoaded) {
+        // Hide play button immediately
+        this.style.display = 'none';
+        loadVideo();
+      }
+    });
+
+    // Also handle click on thumbnail
+    document.getElementById('videoThumbnail').addEventListener('click', function(e) {
+      if (!isVideoLoaded) {
+        // Hide play button immediately
+        document.getElementById('playButton').style.display = 'none';
+        loadVideo();
+      }
+    });
+
+    function loadVideo() {
+      isVideoLoaded = true;
+      
+      // Hide thumbnail and play button immediately
+      const thumbnail = document.getElementById('videoThumbnail');
+      thumbnail.style.opacity = '0';
+      thumbnail.style.pointerEvents = 'none';
+      
+      setTimeout(() => {
+        thumbnail.classList.add('hidden');
+      }, 300);
+      
+      // Get the iframe and move data-src to src
+      const iframe = document.querySelector('#player iframe');
+      const dataSrc = iframe.getAttribute('data-src');
+      iframe.setAttribute('src', dataSrc);
+      
+      // Show player
+      document.getElementById('player').style.display = 'block';
+      
+      // Initialize Plyr
+      player = new Plyr('#player', {
+        // Controls WITHOUT settings and pip initially - we'll add them manually
+        controls: [
+          'play',
+          'progress',
+          'current-time',
+          'mute',
+          'volume',
+          'fullscreen'
+        ],
+        autoplay: true,
+        muted: false,
+        loop: { active: true },
+        disableContextMenu: true,
+        hideControls: false,
+        speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] },
+        // Vimeo-specific settings
+        vimeo: {
+          byline: false,
+          portrait: false,
+          title: false,
+          speed: true,
+          pip: true,
+          controls: false
+        }
+      });
+
+      // Create custom settings button and menu
+      player.on('ready', () => {
+        console.log('Plyr ready');
+        
+        const iframe = player.elements.container.querySelector('iframe');
+        
+        if (iframe && window.Vimeo) {
+          vimeoPlayer = new Vimeo.Player(iframe);
+          
+          vimeoPlayer.getQualities().then((qualities) => {
+            console.log('Vimeo qualities:', qualities);
+            
+            if (qualities && qualities.length > 0) {
+              // Get current quality from Vimeo
+              vimeoPlayer.getQuality().then((quality) => {
+                currentQuality = quality || 'auto';
+                console.log('Current quality:', currentQuality);
+                
+                // Create custom settings button with quality and speed
+                createSettingsButton(qualities);
+              });
+            }
+          }).catch((error) => {
+            console.error('Error fetching qualities:', error);
+          });
+        }
+      });
+    }
+
+    function createSettingsButton(qualities) {
+      const controls = document.querySelector('.plyr__controls');
+      if (!controls) return;
+      
+      // Find fullscreen button to insert before it
+      const fullscreenBtn = controls.querySelector('[data-plyr="fullscreen"]');
+      
+      // Speed options
+      const speedOptions = [
+        { value: 0.5, label: '0.5x' },
+        { value: 0.75, label: '0.75x' },
+        { value: 1, label: 'Normal' },
+        { value: 1.25, label: '1.25x' },
+        { value: 1.5, label: '1.5x' },
+        { value: 2, label: '2x' }
+      ];
+      let currentSpeed = 1;
+      
+      // Create settings button container
+      const settingsContainer = document.createElement('div');
+      settingsContainer.className = 'plyr__menu';
+      settingsContainer.innerHTML = `
+        <button type="button" class="plyr__control" data-plyr="settings" aria-haspopup="true" aria-expanded="false">
+          <svg class="icon--pressed" role="presentation"><use xlink:href="#plyr-settings"></use></svg>
+          <svg class="icon--not-pressed" role="presentation"><use xlink:href="#plyr-settings"></use></svg>
+          <span class="plyr__sr-only">Settings</span>
+        </button>
+        <div class="plyr__menu__container" data-menu="main" hidden>
+          <div>
+            <div role="menu">
+              <button class="plyr__control plyr__control--forward" type="button" data-menu-item="quality">
+                <span>Quality<span class="plyr__menu__value">${currentQuality === 'auto' ? 'Auto' : currentQuality}</span></span>
+                <span class="plyr__menu__arrow">›</span>
+              </button>
+              <button class="plyr__control plyr__control--forward" type="button" data-menu-item="speed">
+                <span>Speed<span class="plyr__menu__value">Normal</span></span>
+                <span class="plyr__menu__arrow">›</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="plyr__menu__container" data-menu="quality" hidden>
+          <div>
+            <button class="plyr__control plyr__control--back" type="button" data-menu-back>
+              <span class="plyr__menu__arrow">‹</span>
+              <span>Quality</span>
+            </button>
+            <div role="menu">
+              ${qualities.map(q => `
+                <button class="plyr__control" type="button" role="menuitemradio" 
+                        data-quality="${q.id}" 
+                        aria-checked="${q.id === currentQuality ? 'true' : 'false'}">
+                  <span>${q.label}</span>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+        <div class="plyr__menu__container" data-menu="speed" hidden>
+          <div>
+            <button class="plyr__control plyr__control--back" type="button" data-menu-back>
+              <span class="plyr__menu__arrow">‹</span>
+              <span>Speed</span>
+            </button>
+            <div role="menu">
+              ${speedOptions.map(s => `
+                <button class="plyr__control" type="button" role="menuitemradio" 
+                        data-speed="${s.value}" 
+                        aria-checked="${s.value === currentSpeed ? 'true' : 'false'}">
+                  <span>${s.label}</span>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Insert before fullscreen button
+      if (fullscreenBtn) {
+        controls.insertBefore(settingsContainer, fullscreenBtn);
+      } else {
+        controls.appendChild(settingsContainer);
+      }
+      
+      // Get menu elements
+      const settingsBtn = settingsContainer.querySelector('[data-plyr="settings"]');
+      const mainMenu = settingsContainer.querySelector('[data-menu="main"]');
+      const qualityMenu = settingsContainer.querySelector('[data-menu="quality"]');
+      const speedMenu = settingsContainer.querySelector('[data-menu="speed"]');
+      const qualityMenuItem = settingsContainer.querySelector('[data-menu-item="quality"]');
+      const speedMenuItem = settingsContainer.querySelector('[data-menu-item="speed"]');
+      const backButtons = settingsContainer.querySelectorAll('[data-menu-back]');
+      const qualityButtons = settingsContainer.querySelectorAll('[data-quality]');
+      const speedButtons = settingsContainer.querySelectorAll('[data-speed]');
+      
+      // Toggle main menu
+      settingsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = mainMenu.hasAttribute('hidden');
+        if (isHidden) {
+          mainMenu.removeAttribute('hidden');
+          settingsBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          closeAllMenus();
+        }
+      });
+      
+      // Navigate to quality menu
+      qualityMenuItem.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mainMenu.setAttribute('hidden', '');
+        qualityMenu.removeAttribute('hidden');
+      });
+      
+      // Navigate to speed menu
+      speedMenuItem.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mainMenu.setAttribute('hidden', '');
+        speedMenu.removeAttribute('hidden');
+      });
+      
+      // Back buttons
+      backButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          qualityMenu.setAttribute('hidden', '');
+          speedMenu.setAttribute('hidden', '');
+          mainMenu.removeAttribute('hidden');
+        });
+      });
+      
+      // Handle quality selection
+      qualityButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const quality = btn.getAttribute('data-quality');
+          
+          if (vimeoPlayer) {
+            vimeoPlayer.setQuality(quality).then(() => {
+              console.log('Quality changed to:', quality);
+              currentQuality = quality;
+              
+              // Update UI
+              qualityButtons.forEach(b => b.setAttribute('aria-checked', 'false'));
+              btn.setAttribute('aria-checked', 'true');
+              
+              // Update main menu value
+              const qualityValue = qualityMenuItem.querySelector('.plyr__menu__value');
+              qualityValue.textContent = quality === 'auto' ? 'Auto' : quality;
+              
+              // Close menu
+              closeAllMenus();
+            }).catch((error) => {
+              console.error('Error changing quality:', error);
+            });
+          }
+        });
+      });
+      
+      // Handle speed selection
+      speedButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const speed = parseFloat(btn.getAttribute('data-speed'));
+          
+          if (vimeoPlayer) {
+            vimeoPlayer.setPlaybackRate(speed).then(() => {
+              console.log('Speed changed to:', speed);
+              currentSpeed = speed;
+              
+              // Update UI
+              speedButtons.forEach(b => b.setAttribute('aria-checked', 'false'));
+              btn.setAttribute('aria-checked', 'true');
+              
+              // Update main menu value
+              const speedValue = speedMenuItem.querySelector('.plyr__menu__value');
+              speedValue.textContent = btn.textContent.trim();
+              
+              // Close menu
+              closeAllMenus();
+            }).catch((error) => {
+              console.error('Error changing speed:', error);
+            });
+          }
+        });
+      });
+      
+      // Close all menus
+      function closeAllMenus() {
+        mainMenu.setAttribute('hidden', '');
+        qualityMenu.setAttribute('hidden', '');
+        speedMenu.setAttribute('hidden', '');
+        settingsBtn.setAttribute('aria-expanded', 'false');
+      }
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', () => {
+        closeAllMenus();
+      });
+      
+      console.log('Custom settings button created with Quality and Speed');
+    }
+  </script>
 </body>
 
 </html>

@@ -14,7 +14,7 @@
   padding: 0 var(--section-px);
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 48px;
 }
 
 .contact-wrap {
@@ -36,6 +36,10 @@
   display: flex;
   gap: 12px;
   margin-top: 32px;
+}
+
+.contact-btns .pill-dark img {
+  filter: brightness(0) invert(1);
 }
 
 /* Contact Card Glassmorphism */
@@ -100,6 +104,51 @@
   color: var(--text-primary);
 }
 
+/* Interactive States */
+.link-item {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-default);
+}
+
+.link-item:hover {
+  transform: translateX(4px);
+}
+
+.link-item:hover .ci-icon {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.link-item:hover .ci-val {
+  color: var(--purple);
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--purple);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(123, 108, 235, 0.3);
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
 /* Contact Footer */
 .contact-footer {
   display: flex;
@@ -137,5 +186,11 @@
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  #contact {
+    background-image: url('../../assets/contact bg mobile.png');
   }
 }

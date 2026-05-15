@@ -43,7 +43,8 @@
 @media (max-width: 1024px) {
   .intro-bottom {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 0;
+    margin-top: 0;
   }
   .intro-bottom > div:first-child {
     display: none;

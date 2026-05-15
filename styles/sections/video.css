@@ -1,66 +1,312 @@
 /* ── VIDEO SECTION ── */
 .video-sec {
   width: 100%;
-  height: 650px;
-  background: url('../../assets/videoThuubnail.jpg') no-repeat center center / cover;
+  aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
   position: relative;
   overflow: hidden;
   padding: 0;
+  background: var(--bg);
 }
 
-.play {
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  transition: transform var(--ease-default), width 0.3s ease, height 0.3s ease;
+/* Video Container */
+.video-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Thumbnail Overlay */
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-.play img {
+.thumbnail-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.play:hover {
+/* Play Button Overlay */
+.play-button-overlay {
+  position: relative;
+  z-index: 11;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform var(--ease-default), opacity 0.2s ease;
+  width: 100px;
+  height: 100px;
+  pointer-events: auto;
+}
+
+.play-button-overlay:hover {
   transform: scale(1.08);
 }
 
+.play-button-overlay:hover .play-icon {
+  filter: brightness(1.2);
+}
+
+.play-button-overlay:active {
+  transform: scale(0.95);
+}
+
+.play-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: filter var(--ease-default);
+  pointer-events: none;
+}
+
+/* Hide thumbnail when video is loaded */
+.video-thumbnail.hidden {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Plyr Video Player Container */
+.plyr__video-embed {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.plyr__video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Plyr Custom Styling to Match Design System */
+.plyr {
+  width: 100%;
+  height: 100%;
+}
+
+/* Plyr Controls Styling */
+.plyr--video .plyr__controls {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 20px;
+}
+
+.plyr__control--overlaid {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  width: 100px;
+  height: 100px;
+  transition: all var(--ease-default);
+}
+
+.plyr__control--overlaid:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.08);
+}
+
+.plyr__control--overlaid svg {
+  fill: var(--text-primary);
+  width: 40px;
+  height: 40px;
+}
+
+/* Progress Bar */
+.plyr__progress input[type="range"] {
+  color: var(--blue);
+}
+
+.plyr__progress__buffer {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Volume and Time */
+.plyr__time,
+.plyr__volume {
+  color: var(--text-primary);
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+}
+
+/* Control Buttons */
+.plyr__controls__item button {
+  color: var(--text-primary);
+}
+
+.plyr__controls__item button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Settings Menu wrapper — must stay as a normal flex item in the controls bar */
+.plyr__menu {
+  position: relative !important;
+  background: transparent !important;
+  border: none !important;
+  min-width: unset !important;
+}
+
+/* Force settings button to always be visible */
+.plyr__control[data-plyr="settings"] {
+  display: inline-flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Settings dropdown popup */
+.plyr__menu__container {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--ff-body) !important;
+  padding: 8px 0;
+  min-width: 200px;
+}
+
+.plyr__menu__container .plyr__control {
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plyr__menu__container .plyr__control:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.plyr__menu__container .plyr__control[role="menuitemradio"][aria-checked="true"]::before {
+  background: var(--blue) !important;
+}
+
+/* Forward menu items (Quality, Speed) */
+.plyr__control--forward {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plyr__menu__value {
+  margin-left: auto;
+  padding-left: 16px;
+  opacity: 0.7;
+  font-size: 0.9em;
+}
+
+.plyr__menu__arrow {
+  margin-left: 8px;
+  font-size: 1.2em;
+  opacity: 0.7;
+}
+
+/* Back button */
+.plyr__control--back {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+  padding-bottom: 12px !important;
+}
+
+.plyr__control--back .plyr__menu__arrow {
+  margin-right: 8px;
+  margin-left: 0;
+}
+
+/* Responsive Sizes */
 @media (min-width: 1280px) {
-  .play {
+  .play-button-overlay {
     width: 180px;
     height: 180px;
+  }
+  
+  .plyr__control--overlaid {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .plyr__control--overlaid svg {
+    width: 60px;
+    height: 60px;
   }
 }
 
 @media (min-width: 1281px) {
-  .play {
+  .play-button-overlay {
     width: 220px;
     height: 220px;
+  }
+  
+  .plyr__control--overlaid {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .plyr__control--overlaid svg {
+    width: 70px;
+    height: 70px;
   }
 }
 
 @media (min-width: 1441px) {
   .video-sec {
-    height: 800px;
+    height: auto;
   }
-  .play {
+  
+  .play-button-overlay {
     width: 280px;
     height: 280px;
+  }
+  
+  .plyr__control--overlaid {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .plyr__control--overlaid svg {
+    width: 90px;
+    height: 90px;
   }
 }
 
 @media (max-width: 768px) {
   .video-sec {
-    height: 450px;
+    height: auto;
   }
-  .play {
+  
+  .play-button-overlay {
     width: 80px;
     height: 80px;
+  }
+  
+  .plyr__control--overlaid {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .plyr__control--overlaid svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .plyr--video .plyr__controls {
+    padding: 15px;
   }
 }
 
