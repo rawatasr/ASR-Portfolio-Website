@@ -13,8 +13,8 @@
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Manrope:wght@400;500;600;700&family=Inter:wght@400&family=Rajdhani:wght@400&display=swap"
     rel="stylesheet" />
 
-  <!-- Plyr Video Player -->
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <link rel="preconnect" href="https://cdn.plyr.io" crossorigin />
+  <link rel="preconnect" href="https://player.vimeo.com" crossorigin />
   <style>
     :root {
       --plyr-color-main: #2fa9de;
@@ -102,7 +102,7 @@
     <div class="hero-bg-name" id="heroBg">Arvind Rawat</div>
     <div class="hero-name-overlay" id="heroOv">Arvind Rawat</div>
 
-    <img class="hero-portrait" src="assets/webp/HERO SECTION PERSON.webp" alt="Arvind Rawat" />
+    <img class="hero-portrait" src="assets/webp/HERO SECTION PERSON.webp" alt="Arvind Rawat" fetchpriority="high" decoding="async" />
 
     <div class="hero-role">// UI/UX &amp; Graphic Designer</div>
 
@@ -110,19 +110,18 @@
       <a class="pill-btn"
         href="https://www.linkedin.com/in/arvind-rawat-6ab13720a?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
         target="_blank">
-        <img src="assets/Linkedin.svg" alt="LinkedIn" />
+        <img src="assets/Linkedin.svg" alt="LinkedIn" decoding="async" />
         LinkedIn
       </a>
       <a class="pill-btn" href="https://www.behance.net/asrarvind" target="_blank">
-        <img src="assets/Behance.svg" alt="Behance" />
+        <img src="assets/Behance.svg" alt="Behance" decoding="async" />
         Behance
       </a>
     </div>
 
-    <div class="fi fi-ig"><img src="assets/Instagram.png" alt="Instagram" /></div>
-    <div class="fi fi-yt"><img src="assets/Youtube.png" alt="YouTube" /></div>
-    <div class="fi fi-mm"><img src="assets/Male Memojis.png" alt="Memoji" /></div>
-  </section>
+    <div class="fi fi-ig"><img src="assets/Instagram.png" alt="Instagram" decoding="async" /></div>
+    <div class="fi fi-yt"><img src="assets/Youtube.png" alt="YouTube" decoding="async" /></div>
+    <div class="fi fi-mm"><img src="assets/Male Memojis.png" alt="Memoji" decoding="async" /></div>
   </section>
 
   <!-- ═══════════════════════════ MARQUEE ═══════════════════════════ -->
@@ -191,7 +190,7 @@
   </div>
 
   <!-- ═══════════════════════════ INTRO ═══════════════════════════ -->
-  <section id="about" class="intro-sec">
+  <section id="about" class="intro-sec lazy-bg">
     <div class="container">
       <div class="reveal">
         <div class="lbl intro-label">// INTRO</div>
@@ -210,11 +209,11 @@
                 creativity with user-centered thinking to deliver meaningful design solutions.</p>
             </div>
             <div class="chips">
-              <div class="chip"><img src="assets/location.png" alt="Location"
+              <div class="chip"><img src="assets/location.png" alt="Location" loading="lazy" decoding="async"
                   style="width: 16px; height: 16px; object-fit: contain;"> Chandigarh, India</div>
-              <div class="chip"><img src="assets/year.png" alt="Experience"
+              <div class="chip"><img src="assets/year.png" alt="Experience" loading="lazy" decoding="async"
                   style="width: 16px; height: 16px; object-fit: contain;"> 5+ Years Experience</div>
-              <div class="chip"><img src="assets/education.png" alt="Education"
+              <div class="chip"><img src="assets/education.png" alt="Education" loading="lazy" decoding="async"
                   style="width: 16px; height: 16px; object-fit: contain;"> BA Graduate</div>
             </div>
           </div>
@@ -228,7 +227,7 @@
     <div class="video-container" id="videoContainer">
       <!-- Thumbnail with Play Button (shown before video loads) -->
       <div class="video-thumbnail" id="videoThumbnail">
-        <img src="assets/webp/videoThuubnail.webp" alt="Video Thumbnail" class="thumbnail-image">
+        <img src="assets/webp/videoThuubnail.webp" alt="Video Thumbnail" class="thumbnail-image" loading="lazy" decoding="async">
         <button class="play-button-overlay" id="playButton" aria-label="Play Video">
           <img src="assets/play button.svg" alt="Play" class="play-icon">
         </button>
@@ -496,12 +495,12 @@
         </div>
         <div class="port-nav">
           <button class="arr prev-arr" onclick="scrollPort(-1)">
-            <img src="assets/back.svg" alt="Back" class="icon-default">
-            <img src="assets/back hover.svg" alt="Back" class="icon-hover">
+            <img src="assets/back.svg" alt="Back" class="icon-default" loading="lazy" decoding="async">
+            <img src="assets/back hover.svg" alt="Back" class="icon-hover" loading="lazy" decoding="async">
           </button>
           <button class="arr next-arr" onclick="scrollPort(1)">
-            <img src="assets/next.svg" alt="Next" class="icon-default">
-            <img src="assets/next hover.svg" alt="Next" class="icon-hover">
+            <img src="assets/next.svg" alt="Next" class="icon-default" loading="lazy" decoding="async">
+            <img src="assets/next hover.svg" alt="Next" class="icon-hover" loading="lazy" decoding="async">
           </button>
         </div>
       </div>
@@ -513,7 +512,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Reelify%20mobile.webp">
-              <img src="assets/work image/dektop view/Reelify.webp" alt="Reelify" />
+              <img src="assets/work image/dektop view/Reelify.webp" alt="Reelify" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -533,7 +532,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Learning+%20mobile.webp">
-              <img src="assets/work image/dektop view/Learning+.webp" alt="Learning+" />
+              <img src="assets/work image/dektop view/Learning+.webp" alt="Learning+" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -553,7 +552,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/CoachNest%20mobile.webp">
-              <img src="assets/work image/dektop view/CoachNest.webp" alt="CoachNest" />
+              <img src="assets/work image/dektop view/CoachNest.webp" alt="CoachNest" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -573,7 +572,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Expense.AI%20mobile.webp">
-              <img src="assets/work image/dektop view/Expense.AI.webp" alt="Expense.AI" />
+              <img src="assets/work image/dektop view/Expense.AI.webp" alt="Expense.AI" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -593,7 +592,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/EliteX%20Mobile.webp">
-              <img src="assets/work image/dektop view/EliteX.webp" alt="EliteX" />
+              <img src="assets/work image/dektop view/EliteX.webp" alt="EliteX" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -613,7 +612,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/MedBot%20mobile.webp">
-              <img src="assets/work image/dektop view/MedBot.webp" alt="MedBot" />
+              <img src="assets/work image/dektop view/MedBot.webp" alt="MedBot" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -633,7 +632,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Recipes%20Roots%20mobile.webp">
-              <img src="assets/work image/dektop view/Recipes Roots.webp" alt="Recipes Roots" />
+              <img src="assets/work image/dektop view/Recipes Roots.webp" alt="Recipes Roots" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -653,7 +652,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Agency%20mobile.webp">
-              <img src="assets/work image/dektop view/Agency.webp" alt="Agency" />
+              <img src="assets/work image/dektop view/Agency.webp" alt="Agency" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -673,7 +672,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Designing%20Agency%20mobile.webp">
-              <img src="assets/work image/dektop view/Designing Agency.webp" alt="Designing Agency" />
+              <img src="assets/work image/dektop view/Designing Agency.webp" alt="Designing Agency" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -693,7 +692,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Learning+%20(website)%20mobile.webp">
-              <img src="assets/work image/dektop view/Learning+ (website).webp" alt="Learning+ Website" />
+              <img src="assets/work image/dektop view/Learning+ (website).webp" alt="Learning+ Website" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -713,7 +712,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/NexBlock%20mobile.webp">
-              <img src="assets/work image/dektop view/NexBlock.webp" alt="NexBlock" />
+              <img src="assets/work image/dektop view/NexBlock.webp" alt="NexBlock" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -733,7 +732,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/RefineHuman%20mobile.webp">
-              <img src="assets/work image/dektop view/RefineHuman.webp" alt="RefineHuman" />
+              <img src="assets/work image/dektop view/RefineHuman.webp" alt="RefineHuman" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -753,7 +752,7 @@
           <div class="port-img">
             <picture>
               <source media="(max-width: 768px)" srcset="assets/work%20image/mobile%20view/Éclat%20Gems%20mobile.webp">
-              <img src="assets/work image/dektop view/Éclat Gems.webp" alt="Éclat Gems" />
+              <img src="assets/work image/dektop view/Éclat Gems.webp" alt="Éclat Gems" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="port-foot">
@@ -790,7 +789,7 @@
   </section>
 
   <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
-  <section id="contact">
+  <section id="contact" class="lazy-bg">
     <div class="container contact-container">
       <div class="contact-wrap reveal">
         <div style="flex: 1;">
@@ -870,16 +869,14 @@
   <script src="js/contact-interactions.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Vimeo Player API (load first) -->
-  <script src="https://player.vimeo.com/api/player.js"></script>
-  
-  <!-- Plyr Video Player -->
-  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
   <script>
     let player = null;
     let vimeoPlayer = null;
     let currentQuality = 'auto';
     let isVideoLoaded = false;
+    const PLYR_CSS_URL = 'https://cdn.plyr.io/3.7.8/plyr.css';
+    const PLYR_JS_URL = 'https://cdn.plyr.io/3.7.8/plyr.js';
+    const VIMEO_JS_URL = 'https://player.vimeo.com/api/player.js';
 
     // Handle play button click - lazy load video
     document.getElementById('playButton').addEventListener('click', function(e) {
@@ -900,7 +897,7 @@
       }
     });
 
-    function loadVideo() {
+    async function loadVideo() {
       isVideoLoaded = true;
       
       // Hide thumbnail and play button immediately
@@ -912,6 +909,21 @@
         thumbnail.classList.add('hidden');
       }, 300);
       
+      try {
+        await Promise.all([
+          loadStylesheet(PLYR_CSS_URL),
+          loadScript(VIMEO_JS_URL),
+          loadScript(PLYR_JS_URL)
+        ]);
+      } catch (error) {
+        console.error('Error loading video player assets:', error);
+        isVideoLoaded = false;
+        thumbnail.style.opacity = '1';
+        thumbnail.style.pointerEvents = '';
+        document.getElementById('playButton').style.display = '';
+        return;
+      }
+
       // Get the iframe and move data-src to src
       const iframe = document.querySelector('#player iframe');
       const dataSrc = iframe.getAttribute('data-src');
@@ -974,6 +986,33 @@
             console.error('Error fetching qualities:', error);
           });
         }
+      });
+    }
+
+    function loadStylesheet(href) {
+      const existing = document.querySelector(`link[href="${href}"]`);
+      if (existing) return Promise.resolve();
+
+      return new Promise((resolve, reject) => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        link.onload = resolve;
+        link.onerror = reject;
+        document.head.appendChild(link);
+      });
+    }
+
+    function loadScript(src) {
+      const existing = document.querySelector(`script[src="${src}"]`);
+      if (existing) return Promise.resolve();
+
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
       });
     }
 
